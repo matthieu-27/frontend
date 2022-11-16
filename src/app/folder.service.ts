@@ -4,6 +4,7 @@ import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { Folder } from './folder';
 import { MessageService } from './message.service';
+import { Bookmark } from './bookmark';
 
 @Injectable({
   providedIn: 'root'
@@ -37,6 +38,15 @@ export class FolderService {
     );
   }
 
+  /** GET folder by id. Will 404 if id not found */
+  getFolderBookmarks(id: number): Observable<Bookmark[]> {
+    const url = `${this.BASE_URL}/${id}/bookmarks`;
+    return this.http.get<Bookmark[]>(url, this.httpOptions).pipe(
+      tap(_ => this.log(`fetched bookmarks from folder id=${id}`)),
+      catchError(this.handleError<Bookmark[]>(`getFolderBookmarks id=${id}`))
+    );
+  }
+
   /** PUT: update the folder on the server */
   updateFolder(folder: Folder): Observable<any> {
     const url = `${this.BASE_URL}/${folder.id}`;
@@ -51,6 +61,16 @@ export class FolderService {
     return this.http.post<Folder>(this.BASE_URL, hero, this.httpOptions).pipe(
       tap((newFolder: Folder) => this.log(`added folder w/ id=${newFolder.id}`)),
       catchError(this.handleError<Folder>('addFolder'))
+    );
+  }
+
+  /** DELETE: delete the hero from the server */
+  deleteHero(id: number): Observable<Folder> {
+    const url = `${this.BASE_URL}/${id}`;
+
+    return this.http.delete<Folder>(url, this.httpOptions).pipe(
+      tap(_ => this.log(`deleted folder id=${id}`)),
+      catchError(this.handleError<Folder>('deleteHero'))
     );
   }
 

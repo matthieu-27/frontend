@@ -37,4 +37,9 @@ export class FoldersComponent implements OnInit {
         this.folders.push(folder);
       });
   }
+
+  delete(folder: Folder): void {
+    this.folders = this.folders.filter(h => h !== folder);
+    this.folderService.deleteHero(folder.id).subscribe();
+  }
 }

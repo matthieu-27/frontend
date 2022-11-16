@@ -4,6 +4,14 @@
 		<a routerLink="/folder/{{folder.id}}">
 			<span class="badge">{{folder.id}}</span> {{folder.name}}
 		</a>
+		<button
+			type="button"
+			class="delete"
+			title="delete hero"
+			(click)="delete(folder)"
+		>
+			x
+		</button>
 	</li>
 </ul>
 <div>

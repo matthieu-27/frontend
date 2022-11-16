@@ -5,7 +5,8 @@ import { FolderDetailComponent } from './folder-detail/folder-detail.component';
 
 const routes: Routes = [
   { path: 'folders', component: FoldersComponent },
-  { path: 'folder/:id', component: FolderDetailComponent}
+  { path: 'folder/:id', component: FolderDetailComponent},
+  { path: 'folder/:id/bookmarks', component: FolderDetailComponent}
 ];
 
 @NgModule({
