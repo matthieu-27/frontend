@@ -1,0 +1,10 @@
+<div *ngIf="folder">
+	<h2>{{ folder.name | uppercase }} Details</h2>
+	<div><span>id: </span>{{folder.id}}</div>
+	<div>
+		<label for="folder-name">Folder name: </label>
+		<input id="folder-name" [(ngModel)]="folder.name" placeholder="name" />
+	</div>
+	<button type="button" (click)="save()">save</button>
+	<button type="button" (click)="goBack()">go back</button>
+</div>
