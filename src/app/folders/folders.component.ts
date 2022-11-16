@@ -28,4 +28,13 @@ export class FoldersComponent implements OnInit {
     this.folderService.getFolders()
         .subscribe(folders => this.folders = folders);
   }
+
+  add(name: string): void {
+    name = name.trim();
+    if (!name) { return; }
+    this.folderService.addFolder({ name } as Folder)
+      .subscribe(folder => {
+        this.folders.push(folder);
+      });
+  }
 }

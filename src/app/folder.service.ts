@@ -37,12 +37,20 @@ export class FolderService {
     );
   }
 
-  /** PUT: update the hero on the server */
+  /** PUT: update the folder on the server */
   updateFolder(folder: Folder): Observable<any> {
     const url = `${this.BASE_URL}/${folder.id}`;
     return this.http.put(url, folder, this.httpOptions).pipe(
       tap(_ => this.log(`updated folder id=${folder.id}`)),
       catchError(this.handleError<any>('updateFolder'))
+    );
+  }
+
+  /** POST: add a new folder to the server */
+  addFolder(hero: Folder): Observable<Folder> {
+    return this.http.post<Folder>(this.BASE_URL, hero, this.httpOptions).pipe(
+      tap((newFolder: Folder) => this.log(`added folder w/ id=${newFolder.id}`)),
+      catchError(this.handleError<Folder>('addFolder'))
     );
   }
 
