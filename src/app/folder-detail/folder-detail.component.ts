@@ -14,7 +14,6 @@ import { Bookmark } from '../bookmark';
 export class FolderDetailComponent implements OnInit {
 
   @Input() folder?: Folder;
-  bookmarks: Bookmark[] = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -24,8 +23,7 @@ export class FolderDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.getFolder();
-    this.getFolderBookmarks();
-    console.log(this.bookmarks);
+
   }
   
   getFolder(): void {
@@ -34,11 +32,7 @@ export class FolderDetailComponent implements OnInit {
       .subscribe(folder => this.folder = folder);
   }
 
-  getFolderBookmarks(): void {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.folderService.getFolderBookmarks(id)
-      .subscribe(bookmarks => this.bookmarks = bookmarks);
-  }
+
 
   goBack(): void {
     this.location.back();
@@ -50,5 +44,6 @@ export class FolderDetailComponent implements OnInit {
         .subscribe(() => this.goBack());
     }
   }
+  
 
 }

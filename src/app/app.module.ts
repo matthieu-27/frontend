@@ -7,12 +7,16 @@ import { FolderDetailComponent } from './folder-detail/folder-detail.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MessagesComponent } from './messages/messages.component';
 import { AppRoutingModule } from './app-routing.module';
+import { BookmarksComponent } from './bookmarks/bookmarks.component';
+import { LoginComponent } from './login/login.component';
 @NgModule({
   declarations: [
     AppComponent,
     FoldersComponent,
     FolderDetailComponent,
-    MessagesComponent
+    MessagesComponent,
+    BookmarksComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

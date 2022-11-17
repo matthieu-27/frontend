@@ -11,7 +11,7 @@ import { Bookmark } from './bookmark';
 })
 export class FolderService {
 
-  private BASE_URL = "http://127.0.0.1:8000/api/folders";
+  private BASE_URL = "http://127.0.0.1:8000/api/";
   private httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json',
     'Authorization': 'Bearer 2|ZO0aCXDJZpkFhlgSDmhwZtgFuBtSspXq4MDR3rFw' })
@@ -22,7 +22,7 @@ export class FolderService {
 
   /** GET folders from the server */
   getFolders(): Observable<Folder[]> {
-    return this.http.get<Folder[]>(this.BASE_URL, this.httpOptions)
+    return this.http.get<Folder[]>(this.BASE_URL + "folders", this.httpOptions)
       .pipe(
         tap(_ => this.log('fetched folders')),
         catchError(this.handleError<Folder[]>('getFolders', []))
@@ -31,7 +31,7 @@ export class FolderService {
 
   /** GET folder by id. Will 404 if id not found */
   getFolder(id: number): Observable<Folder> {
-    const url = `${this.BASE_URL}/${id}`;
+    const url = `${this.BASE_URL}folders/${id}`;
     return this.http.get<Folder>(url, this.httpOptions).pipe(
       tap(_ => this.log(`fetched folder id=${id}`)),
       catchError(this.handleError<Folder>(`getFolder id=${id}`))
@@ -40,7 +40,7 @@ export class FolderService {
 
   /** GET folder by id. Will 404 if id not found */
   getFolderBookmarks(id: number): Observable<Bookmark[]> {
-    const url = `${this.BASE_URL}/${id}/bookmarks`;
+    const url = `${this.BASE_URL}folders/${id}/`;
     return this.http.get<Bookmark[]>(url, this.httpOptions).pipe(
       tap(_ => this.log(`fetched bookmarks from folder id=${id}`)),
       catchError(this.handleError<Bookmark[]>(`getFolderBookmarks id=${id}`))
@@ -49,7 +49,7 @@ export class FolderService {
 
   /** PUT: update the folder on the server */
   updateFolder(folder: Folder): Observable<any> {
-    const url = `${this.BASE_URL}/${folder.id}`;
+    const url = `${this.BASE_URL}folders/${folder.id}`;
     return this.http.put(url, folder, this.httpOptions).pipe(
       tap(_ => this.log(`updated folder id=${folder.id}`)),
       catchError(this.handleError<any>('updateFolder'))
@@ -57,16 +57,16 @@ export class FolderService {
   }
 
   /** POST: add a new folder to the server */
-  addFolder(hero: Folder): Observable<Folder> {
-    return this.http.post<Folder>(this.BASE_URL, hero, this.httpOptions).pipe(
+  addFolder(folder: Folder): Observable<Folder> {
+    return this.http.post<Folder>(this.BASE_URL + "folders", folder, this.httpOptions).pipe(
       tap((newFolder: Folder) => this.log(`added folder w/ id=${newFolder.id}`)),
       catchError(this.handleError<Folder>('addFolder'))
     );
   }
 
-  /** DELETE: delete the hero from the server */
-  deleteHero(id: number): Observable<Folder> {
-    const url = `${this.BASE_URL}/${id}`;
+  /** DELETE: delete the folder from the server */
+  deleteFolder(id: number): Observable<Folder> {
+    const url = `${this.BASE_URL}folders/${id}`;
 
     return this.http.delete<Folder>(url, this.httpOptions).pipe(
       tap(_ => this.log(`deleted folder id=${id}`)),
