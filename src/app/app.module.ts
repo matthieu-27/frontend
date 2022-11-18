@@ -9,6 +9,7 @@ import { MessagesComponent } from './messages/messages.component';
 import { AppRoutingModule } from './app-routing.module';
 import { BookmarksComponent } from './bookmarks/bookmarks.component';
 import { LoginComponent } from './login/login.component';
+import { httpInterceptorProviders } from './http.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
