@@ -15,8 +15,6 @@ export class UserService {
 
   constructor(private messageService: MessageService, private http: HttpClient) { }
 
-  login(email: string, password: string): Observable<any> {
-    return this.http.post<any>(this.BASE_URL + "login", { email, password }, this.httpOptions);
-  }
+
 
 }

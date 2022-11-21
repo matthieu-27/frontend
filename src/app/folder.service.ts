@@ -13,8 +13,7 @@ export class FolderService {
 
   private BASE_URL = "http://127.0.0.1:8000/api/";
   private httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json',
-    'Authorization': 'Bearer 2|ZO0aCXDJZpkFhlgSDmhwZtgFuBtSspXq4MDR3rFw' })
+    headers: new HttpHeaders({ 'Content-Type': 'application/json'})
   };
 
   constructor(private http: HttpClient, private messageService: MessageService) {

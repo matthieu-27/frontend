@@ -4,12 +4,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // <-- NgMode
 import { AppComponent } from './app.component';
 import { FoldersComponent } from './folders/folders.component';
 import { FolderDetailComponent } from './folder-detail/folder-detail.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MessagesComponent } from './messages/messages.component';
 import { AppRoutingModule } from './app-routing.module';
 import { BookmarksComponent } from './bookmarks/bookmarks.component';
 import { LoginComponent } from './login/login.component';
-import { httpInterceptorProviders } from './http.interceptor';
+import { AuthModule } from './auth/auth.module';
+import { UserTokenInterceptor } from './auth/interceptors/user-token/user-token.interceptor';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,9 +27,10 @@ import { httpInterceptorProviders } from './http.interceptor';
     FormsModule,
     HttpClientModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AuthModule
   ],
-  providers: [],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: UserTokenInterceptor, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

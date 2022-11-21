@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from '../auth/services/auth-service/auth.service';
 import { MessageService } from '../message.service';
 import { User } from '../user';
 import { UserService } from '../user.service';
@@ -11,26 +12,22 @@ import { UserService } from '../user.service';
 })
 export class LoginComponent {
 
-  form: any = {
-    username: null,
-    password: null
-  };
-  isLoggedIn = false;
-  isLoginFailed = false;
-  errorMessage = '';
 
   userForm = this.fb.group({
-    email: this.fb.control('', Validators.email),
-    password: this.fb.control('', Validators.required)
+    email: this.fb.control('me@you.fr', Validators.email),
+    password: this.fb.control('password', Validators.required)
   });
 
-  constructor(private fb: FormBuilder, private messageService: MessageService, private userService: UserService) {}
+  constructor(private fb: FormBuilder, private messageService: MessageService, private userService: UserService, public authService: AuthService) {}
 
   login(): void {
-    const {email, password} = this.form;
-    this.userService.login(email, password).subscribe({next: data => {
-      console.log(data);
-    }});
+    if(this.userForm.value.email && this.userForm.value.password) {
+
+      this.authService.SignIn(this.userForm.value.email, this.userForm.value.password).subscribe( isLogged => {
+        // fin de l'authentification;
+        this.messageService.add(`IsLogged ${isLogged}`);
+      })
+    }
   }
 
   reloadPage(): void {

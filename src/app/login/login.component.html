@@ -1,8 +1,18 @@
 <h2>Login</h2>
+<span [innerHTML]="authService.logged$ | async"></span>
 <form (ngSubmit)="login()" [formGroup]="userForm">
-	<div><label>Email</label><input type="email" formControlName="email" /></div>
-	<div>
-		<label>Password</label><input type="password" formControlName="password" />
-	</div>
-	<button type="submit" [disabled]="userForm.invalid">Login</button>
+  <div>
+    <label>Email</label
+    ><input type="email" formControlName="email" placeholder="me@you.fr" />
+    <p>henriette44@example.org</p>
+  </div>
+  <div>
+    <label>Password</label
+    ><input
+      type="password"
+      formControlName="password"
+      placeholder="password"
+    />password
+  </div>
+  <button type="submit" [disabled]="userForm.invalid">Login</button>
 </form>
