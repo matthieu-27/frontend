@@ -36,9 +36,8 @@ export class AuthService {
   }
 
   public logout() : void {
-    this.logged$ = of(false);
+    this.logged.next(false);
     this._userToken = '';
-    this.logged = new BehaviorSubject<boolean>(false);
   }
 
   public isLogged  = () => {

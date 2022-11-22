@@ -29,6 +29,10 @@ export class LoginComponent {
     }
   }
 
+  logout(): void {
+    this.authService.logout();
+  }
+
   reloadPage(): void {
     window.location.reload();
   }

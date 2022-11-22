@@ -4,13 +4,13 @@ import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
 import { Bookmark } from 'src/app/models/bookmark'; 
+import { environment } from 'src/environments/environment';
 import { MessageService } from '../misc-service/message.service';  
 
 @Injectable({
   providedIn: 'root'
 })
 export class BookmarkService {
-  private BASE_URL = "http://127.0.0.1:8000/api/";
   private httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
@@ -20,7 +20,7 @@ export class BookmarkService {
 
   /** GET bookmarks from the server */
   getBookmarks(): Observable<Bookmark[]> {
-    return this.http.get<Bookmark[]>(this.BASE_URL + "bookmarks", this.httpOptions)
+    return this.http.get<Bookmark[]>(environment.apis.bookmarks + "bookmarks", this.httpOptions)
       .pipe(
         tap(_ => this.log('fetched bookmarks')),
         catchError(this.handleError<Bookmark[]>('getBookmarks', []))
@@ -28,7 +28,7 @@ export class BookmarkService {
   }
 
   getFolderBookmarks(id: number){
-    return this.http.get<Bookmark[]>(this.BASE_URL + "folders/" + id + "/bookmarks", this.httpOptions)
+    return this.http.get<Bookmark[]>(environment.apis.bookmarks + "folders/" + id + "/bookmarks", this.httpOptions)
     .pipe(
       tap(_ => this.log('fetched bookmarks from folder id=' + id)),
       catchError(this.handleError<Bookmark[]>('getFolderBookmarks', []))
