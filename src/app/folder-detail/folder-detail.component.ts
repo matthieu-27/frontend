@@ -1,10 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Folder } from '../folder';
+import { Folder } from '../models/folder'; 
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
-
-import { FolderService } from '../folder.service';
-import { Bookmark } from '../bookmark';
+import { FolderService } from '../services/api-service/folder.service'; 
 
 @Component({
   selector: 'app-folder-detail',

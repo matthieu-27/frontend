@@ -11,6 +11,7 @@ import { BookmarksComponent } from './bookmarks/bookmarks.component';
 import { LoginComponent } from './login/login.component';
 import { AuthModule } from './auth/auth.module';
 import { UserTokenInterceptor } from './auth/interceptors/user-token/user-token.interceptor';
+import { TagsComponent } from './tags/tags.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { UserTokenInterceptor } from './auth/interceptors/user-token/user-token.
     MessagesComponent,
     BookmarksComponent,
     LoginComponent,
+    TagsComponent,
     
   ],
   imports: [

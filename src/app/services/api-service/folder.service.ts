@@ -2,9 +2,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
-import { Folder } from './folder';
-import { MessageService } from './message.service';
-import { Bookmark } from './bookmark';
+import { Folder } from 'src/app/models/folder'; 
+import { MessageService } from '../misc-service/message.service'; 
+import { Bookmark } from 'src/app/models/bookmark'; 
 
 @Injectable({
   providedIn: 'root'

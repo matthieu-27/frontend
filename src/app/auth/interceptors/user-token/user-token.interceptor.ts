@@ -6,7 +6,7 @@ import {
   HttpInterceptor
 } from '@angular/common/http';
 import { catchError, Observable, throwError } from 'rxjs';
-import { AuthService } from '../../services/auth-service/auth.service';
+import { AuthService } from 'src/app/services/auth-service/auth.service'; 
 
 @Injectable()
 export class UserTokenInterceptor implements HttpInterceptor {

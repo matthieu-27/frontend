@@ -1,9 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Bookmark } from '../bookmark';
-import { BookmarkService } from '../bookmark.service';
-import { Folder } from '../folder';
-import { MessageService } from '../message.service';
+import { Bookmark } from '../models/bookmark'; 
+import { BookmarkService } from '../services/api-service/bookmark.service'; 
+import { Folder } from '../models/folder'; 
+import { MessageService } from '../services/misc-service/message.service'; 
 
 @Component({
   selector: 'app-bookmarks',

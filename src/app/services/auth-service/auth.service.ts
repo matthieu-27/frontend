@@ -1,7 +1,7 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, of } from 'rxjs';
-import { MessageService } from 'src/app/message.service';
+import { MessageService } from '../misc-service/message.service';
 import { environment } from 'src/environments/environment';
 
 @Injectable({

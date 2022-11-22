@@ -3,8 +3,8 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
-import { Bookmark } from './bookmark';
-import { MessageService } from './message.service';
+import { Bookmark } from 'src/app/models/bookmark'; 
+import { MessageService } from '../misc-service/message.service';  
 
 @Injectable({
   providedIn: 'root'
