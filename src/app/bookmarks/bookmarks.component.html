@@ -1,5 +1,7 @@
 <div *ngIf="bookmarks">
-	<ul>
-		<li *ngFor="let bookmark of bookmarks">{{ bookmark.title }}</li>
-	</ul>
+  <ul>
+    <li *ngFor="let bookmark of bookmarks">
+      <a routerLink="{{ bookmark.id }}">{{ bookmark.title }}</a>
+    </li>
+  </ul>
 </div>

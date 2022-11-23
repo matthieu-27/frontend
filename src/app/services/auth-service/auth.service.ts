@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { MessageService } from '../misc-service/message.service';
 import { environment } from 'src/environments/environment';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -15,13 +16,13 @@ export class AuthService {
   private logged: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   public logged$ = this.logged.asObservable();
 
-  constructor(private http: HttpClient, private message: MessageService) { }
+  constructor(private http: HttpClient, private message: MessageService, private router: Router) { }
 
   public SignIn(email: string, password: string) :Observable<boolean> {
     return new Observable( obs => {
-      this.http.post<string>(`${environment.apis.bookmarks}login`, { email, password }).subscribe( {
-        next: token => {
-          this._userToken = 'Bearer ' + token;
+      this.http.post<any>(`${environment.apis.bookmarks}login`, { email, password }).subscribe( {
+        next: data => {
+          this._userToken = 'Bearer ' + data.token;
           this.changeLoggedValue(true);
           obs.next(true);
           obs.complete();
@@ -36,6 +37,7 @@ export class AuthService {
   }
 
   public logout() : void {
+    localStorage.removeItem("access_token");
     this.logged.next(false);
     this._userToken = '';
   }

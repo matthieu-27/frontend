@@ -18,7 +18,10 @@ export class UserTokenInterceptor implements HttpInterceptor {
     //Request Add UserToken JWT
     if(this.authService.isLogged())  {
       request = request.clone({
-        setHeaders: {Authorization: this.authService.userToken}
+       setHeaders: {
+        "Authorization": this.authService.userToken,
+        "Content-Type": 'application/json'
+       }
      })
     }
     // Vérifier si 401 dans le next

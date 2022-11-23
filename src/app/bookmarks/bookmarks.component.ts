@@ -18,7 +18,7 @@ export class BookmarksComponent implements OnInit {
   constructor(private messageService: MessageService, private bookmarkService: BookmarkService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.getFolderBookmarks();
+    this.getBookmarks();
   }
 
   getBookmarks(): void {

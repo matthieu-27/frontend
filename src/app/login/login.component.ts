@@ -21,7 +21,6 @@ export class LoginComponent {
 
   login(): void {
     if(this.userForm.value.email && this.userForm.value.password) {
-
       this.authService.SignIn(this.userForm.value.email, this.userForm.value.password).subscribe( isLogged => {
         // fin de l'authentification;
         this.messageService.add(`IsLogged ${isLogged}`);

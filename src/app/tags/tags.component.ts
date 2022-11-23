@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Bookmark } from '../models/bookmark';
 import { Folder } from '../models/folder';
+import { Tag } from '../models/tag';
 
 @Component({
   selector: 'app-tags',
@@ -11,6 +12,8 @@ export class TagsComponent implements OnInit {
 
   @Input() folder?: Folder;
   @Input() bookmark?: Bookmark;
+  folderTags: Tag[] = [];
+  bookmarkTags: Tag[] = [];
 
   constructor() { }
 

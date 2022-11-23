@@ -11,24 +11,22 @@ import { MessageService } from '../misc-service/message.service';
   providedIn: 'root'
 })
 export class BookmarkService {
-  private httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-  };
 
   constructor(private http: HttpClient, private messageService: MessageService) {
   }
 
   /** GET bookmarks from the server */
   getBookmarks(): Observable<Bookmark[]> {
-    return this.http.get<Bookmark[]>(environment.apis.bookmarks + "bookmarks", this.httpOptions)
+    return this.http.get<Bookmark[]>(environment.apis.bookmarks + "bookmarks")
       .pipe(
         tap(_ => this.log('fetched bookmarks')),
         catchError(this.handleError<Bookmark[]>('getBookmarks', []))
       );
   }
 
+  /** GET bookmarks inside a Folder */
   getFolderBookmarks(id: number){
-    return this.http.get<Bookmark[]>(environment.apis.bookmarks + "folders/" + id + "/bookmarks", this.httpOptions)
+    return this.http.get<Bookmark[]>(environment.apis.bookmarks + "folders/" + id + "/bookmarks")
     .pipe(
       tap(_ => this.log('fetched bookmarks from folder id=' + id)),
       catchError(this.handleError<Bookmark[]>('getFolderBookmarks', []))
@@ -39,7 +37,7 @@ export class BookmarkService {
     this.messageService.add(`BookmarkService: ${message}`);
   }
 
-    /**
+  /**
    * Handle Http operation that failed.
    * Let the app continue.
    *
