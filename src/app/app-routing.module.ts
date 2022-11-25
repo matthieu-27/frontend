@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: 'folders', component: FoldersComponent },
   { path: 'folder/:id', component: FolderDetailComponent},
   { path: 'bookmarks', component: BookmarksComponent},
-  { path: 'folder/:folderid/:id', component: BookmarkDetailComponent},
+  { path: 'bookmark/:id', component: BookmarkDetailComponent},
   { path: 'tags', component: TagsComponent},
   { path: 'user/:id', component: UserDetailComponent}
 ];

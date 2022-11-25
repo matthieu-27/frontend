@@ -1,1 +1,18 @@
-<p>bookmark-detail works!</p>
+<div *ngIf="bookmark">
+  <h2>{{ bookmark.title | uppercase }} Details</h2>
+  <div><span>id: </span>{{ bookmark.id }}</div>
+  <div>
+    <label for="bookmark-title">Bookmark title: </label>
+    <input
+      id="bookmark-title"
+      [(ngModel)]="bookmark.title"
+      placeholder="title"
+    />
+  </div>
+  <br />
+  <a href="{{ bookmark.url }}" target="_blank">{{ bookmark.url }}</a>
+  <p>{{ bookmark.description }}</p>
+  <img src="{{ bookmark.thumbnail }}" alt="" />
+  <!-- <button type="button" (click)="save()">save</button>
+    <button type="button" (click)="goBack()">go back</button> -->
+</div>

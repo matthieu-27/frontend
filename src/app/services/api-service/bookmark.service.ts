@@ -25,11 +25,11 @@ export class BookmarkService {
   }
 
   /** GET bookmarks inside a Folder */
-  getFolderBookmarks(id: number){
-    return this.http.get<Bookmark[]>(environment.apis.bookmarks + "folders/" + id + "/bookmarks")
+  getBookmark(id: number){
+    return this.http.get<Bookmark>(environment.apis.bookmarks + "bookmarks/" + id)
     .pipe(
-      tap(_ => this.log('fetched bookmarks from folder id=' + id)),
-      catchError(this.handleError<Bookmark[]>('getFolderBookmarks', []))
+      tap(_ => this.log('fetched bookmarks with id=' + id)),
+      catchError(this.handleError<Bookmark>('getBookmark', ))
     );
   }
 

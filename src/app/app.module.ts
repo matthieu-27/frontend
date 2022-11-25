@@ -14,6 +14,8 @@ import { UserTokenInterceptor } from './auth/interceptors/user-token/user-token.
 import { TagsComponent } from './tags/tags.component';
 import { BookmarkDetailComponent } from './bookmark-detail/bookmark-detail.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
     HttpClientModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    AuthModule
+    AuthModule,
+    BrowserAnimationsModule,
+    DragDropModule
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: UserTokenInterceptor, multi: true}],
   bootstrap: [AppComponent]

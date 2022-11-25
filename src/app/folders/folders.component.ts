@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Folder } from '../models/folder'; 
 import { FolderService } from '../services/api-service/folder.service'; 
 import { MessageService } from '../services/misc-service/message.service';
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-folders',
@@ -17,6 +18,7 @@ export class FoldersComponent implements OnInit {
 
   ngOnInit(): void {
     this.getFolders();
+
   }
 
   onSelect(folder: Folder): void {
@@ -41,5 +43,9 @@ export class FoldersComponent implements OnInit {
   delete(folder: Folder): void {
     this.folders = this.folders.filter(h => h !== folder);
     this.folderService.deleteFolder(folder.id).subscribe();
+  }
+
+  drop(event: CdkDragDrop<string[]>) {
+    moveItemInArray(this.folders, event.previousIndex, event.currentIndex);
   }
 }

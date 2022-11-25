@@ -1,7 +1,5 @@
-<div *ngIf="!authService.logged$">test</div>
-<div *ngIf="authService.logged$">
+<div *ngIf="!(authService.logged$ | async)">
   <h2>Login</h2>
-  <span [innerHTML]="authService.logged$ | async"></span>
   <form (ngSubmit)="login()" [formGroup]="userForm">
     <div>
       <label>Email</label
@@ -17,6 +15,6 @@
       />password
     </div>
     <button type="submit" [disabled]="userForm.invalid">Login</button>
-    <button type="button" (click)="logout()">logout</button>
   </form>
 </div>
+<button type="button" (click)="logout()">logout</button>

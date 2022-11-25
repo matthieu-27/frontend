@@ -26,9 +26,5 @@ export class BookmarksComponent implements OnInit {
         .subscribe(bookmarks => this.bookmarks = bookmarks);
   }
 
-  getFolderBookmarks(): void {
-    this.bookmarks = [];
-    const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.bookmarkService.getFolderBookmarks(id).subscribe(bookmarks => this.bookmarks = bookmarks);
-  }
+
 }

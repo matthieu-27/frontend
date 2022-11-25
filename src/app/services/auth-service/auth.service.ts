@@ -16,13 +16,19 @@ export class AuthService {
   private logged: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   public logged$ = this.logged.asObservable();
 
-  constructor(private http: HttpClient, private message: MessageService, private router: Router) { }
+  constructor(private http: HttpClient, private message: MessageService) { 
+    if(localStorage.getItem("access_token") !== null){
+      this._userToken = String(localStorage.getItem("access_token"));
+      this.changeLoggedValue(true);
+    } 
+  }
 
   public SignIn(email: string, password: string) :Observable<boolean> {
     return new Observable( obs => {
       this.http.post<any>(`${environment.apis.bookmarks}login`, { email, password }).subscribe( {
         next: data => {
           this._userToken = 'Bearer ' + data.token;
+          localStorage.setItem("access_token", this.userToken);
           this.changeLoggedValue(true);
           obs.next(true);
           obs.complete();
@@ -49,4 +55,6 @@ export class AuthService {
   private changeLoggedValue(newValue : boolean) {
     this.logged.next(newValue);
   }
+
+
 }
