@@ -1,19 +1,12 @@
 <h2>My Folders</h2>
 <ul class="folders" cdkDropList (cdkDropListDropped)="drop($event)">
-  <li *ngFor="let folder of folders" cdkDrag>
-    <a routerLink="/folder/{{ folder.id }}">
-      <span class="badge">{{ folder.id }}</span> {{ folder.name }}
-    </a>
-    <button
-      type="button"
-      class="delete"
-      title="delete folder"
-      (click)="delete(folder)"
-    >
-      x
-    </button>
-  </li>
+  <app-folder
+    *ngFor="let folder of folders"
+    [folder]="folder"
+    cdkDrag
+  ></app-folder>
 </ul>
+
 <div>
   <label for="new-folder">Folder name: </label>
   <input id="new-folder" #folderName />
@@ -27,3 +20,13 @@
     Add folder
   </button>
 </div>
+
+<!-- app-fodler 
+  
+  <h1> Title Folder </h1>
+  <div *ngFor="let folder of folder.children">
+    <app-folder [folder] = "folder"></app-folder>
+  </div>
+
+
+ -->

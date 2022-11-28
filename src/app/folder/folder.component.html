@@ -1,0 +1,14 @@
+<li class="folders">
+  <div routerLink="/folder/{{ folder.id }}">
+    <span class="badge">{{ folder.id }}</span> {{ folder.name }}
+  </div>
+  <button
+    type="button"
+    class="delete"
+    title="delete folder"
+    (click)="delete(folder)"
+  >
+    x
+  </button>
+</li>
+<app-folder *ngFor="let child of folder.children" [folder]="child"></app-folder>

@@ -11,7 +11,7 @@ import { FolderService } from '../services/api-service/folder.service';
 })
 export class FolderDetailComponent implements OnInit {
 
-  @Input() folder?: Folder;
+  @Input() folder!: Folder;
 
   constructor(
     private route: ActivatedRoute,

@@ -16,6 +16,7 @@ import { BookmarkDetailComponent } from './bookmark-detail/bookmark-detail.compo
 import { UserDetailComponent } from './user-detail/user-detail.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { FolderComponent } from './folder/folder.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     TagsComponent,
     BookmarkDetailComponent,
     UserDetailComponent,
+    FolderComponent,
     
   ],
   imports: [
