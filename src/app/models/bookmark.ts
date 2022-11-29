@@ -4,4 +4,6 @@ export interface Bookmark {
     url: string,
     description: string,
     thumbnail: string
+    created_at: Date;
+    updated_at: Date;
 }

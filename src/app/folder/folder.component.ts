@@ -12,7 +12,6 @@ export class FolderComponent {
   @Input() folder!: Folder;
 
   constructor(private folderService: FolderService){
-
   }
 
   delete(folder: Folder): void {

@@ -4,13 +4,9 @@
     list-style-type: none;
     padding: 0;
     width: 15em;
-    position: relative;
 }
 
-input {
-    display: block;
-    width: 100%;
-    padding: .5rem;
-    margin: 1rem 0;
-    box-sizing: border-box;
+.folders app-folder {
+    position: relative;
+
 }

@@ -6,13 +6,15 @@ import { Folder } from 'src/app/models/folder';
 import { MessageService } from '../misc-service/message.service'; 
 import { Bookmark } from 'src/app/models/bookmark'; 
 import { environment } from 'src/environments/environment';
+import { BaseService } from './base.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class FolderService {
+export class FolderService extends BaseService {
 
-  constructor(private http: HttpClient, private messageService: MessageService) {
+  constructor(private http: HttpClient) {
+    super(new MessageService());
   }
 
   /** GET folders from the server */
@@ -68,31 +70,4 @@ export class FolderService {
       catchError(this.handleError<Folder>('deleteHero'))
     );
   }
-
-  /** Log a FolderService message with the MessageService */
-  private log(message: string) {
-    this.messageService.add(`FolderService: ${message}`);
-  }
-
-  /**
-   * Handle Http operation that failed.
-   * Let the app continue.
-   *
-   * @param operation - name of the operation that failed
-   * @param result - optional value to return as the observable result
-   */
-  private handleError<T>(operation = 'operation', result?: T) {
-    return (error: any): Observable<T> => {
-
-      // TODO: send the error to remote logging infrastructure
-      console.error(error); // log to console instead
-
-      // TODO: better job of transforming error for user consumption
-      this.log(`${operation} failed: ${error.message}`);
-
-      // Let the app keep running by returning an empty result.
-      return of(result as T);
-   };
-  }
-
 }

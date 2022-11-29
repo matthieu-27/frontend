@@ -1,49 +1,23 @@
+/* foldersComponent's private CSS styles */
 app-folder {
-    display: block;
     margin-left: 10px;
+    display: list-item;
     position: relative;
 }
 
-/* FolderDetailComponent's private CSS styles */
-label {
-    color: #435960;
-    font-weight: bold;
-}
-
-input {
-    font-size: 1em;
-    padding: .5rem;
-}
-
-button {
-    margin-top: 20px;
-    margin-right: .5rem;
-    background-color: #eee;
-    padding: 1rem;
-    border-radius: 4px;
-    font-size: 1rem;
-}
-
-button:hover {
-    background-color: #cfd8dc;
-}
-
-button:disabled {
-    background-color: #eee;
-    color: #ccc;
-    cursor: auto;
-}
-
-.folders li {
-    position: relative;
-    cursor: pointer;
-}
-
-.folders li:hover {
+app-folder:hover {
     left: .1em;
 }
 
-.folders div {
+input {
+    display: block;
+    width: 100%;
+    padding: .5rem;
+    margin: 1rem 0;
+    box-sizing: border-box;
+}
+
+a {
     color: #333;
     text-decoration: none;
     background-color: #EEE;
@@ -53,20 +27,19 @@ button:disabled {
     border-radius: 4px;
     display: block;
     width: 100%;
-    cursor: pointer;
 }
 
-.folders a:hover {
+a:hover {
     color: #2c3a41;
     background-color: #e6e6e6;
 }
 
-.folders a:active {
+a:active {
     background-color: #525252;
     color: #fafafa;
 }
 
-.folders .badge {
+.badge {
     display: inline-block;
     font-size: small;
     color: white;
@@ -96,8 +69,8 @@ button:disabled {
 
 button.delete {
     position: absolute;
-    top: 0;
-    right: 0;
+    left: 210px;
+    top: 5px;
     background-color: white;
     color: #525252;
     font-size: 1.1rem;

@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Bookmark } from '../models/bookmark';
 import { Folder } from '../models/folder';
 import { Tag } from '../models/tag';
+import { TagService } from '../services/api-service/tag.service';
 
 @Component({
   selector: 'app-tags',
@@ -10,14 +11,16 @@ import { Tag } from '../models/tag';
 })
 export class TagsComponent implements OnInit {
 
-  @Input() folder?: Folder;
-  @Input() bookmark?: Bookmark;
-  folderTags: Tag[] = [];
-  bookmarkTags: Tag[] = [];
+  tags: Tag[] = [];
 
-  constructor() { }
+  constructor(private tagService: TagService) { }
 
   ngOnInit(): void {
+    this.getTags();
+  }
+
+  getTags(): void {
+    this.tagService.getTags().subscribe(tags => this.tags = tags);
   }
 
 }
