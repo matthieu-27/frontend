@@ -4,9 +4,9 @@
     list-style-type: none;
     padding: 0;
     width: 15em;
+
 }
 
-.folders app-folder {
+app-folder {
     position: relative;
-
 }

@@ -20,7 +20,7 @@ export class TagService extends BaseService {
     return this.http.get<Tag[]>(environment.apis.bookmarks + "tags")
       .pipe(
         tap(_ => this.log('fetched tags')),
-        catchError(this.handleError<Tag[]>('getBookmarks', []))
+        catchError(this.handleError<Tag[]>('getTags', []))
       );
   }
 

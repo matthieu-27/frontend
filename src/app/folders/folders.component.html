@@ -1,8 +1,8 @@
 <h2>My Folders</h2>
 <!-- <ul class="folders" cdkDropList (cdkDropListDropped)="drop($event)"> -->
-<ul class="folders">
+<div class="folders">
   <app-folder *ngFor="let folder of folders" [folder]="folder"></app-folder>
-</ul>
+</div>
 
 <div>
   <label for="new-folder">Folder name: </label>
