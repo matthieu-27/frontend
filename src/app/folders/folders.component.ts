@@ -11,7 +11,7 @@ import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 })
 export class FoldersComponent implements OnInit {
 
-  folders: Folder[] = [];
+  root: Folder = <Folder>{ id: 0, name: "", children: [] };
   selectedFolder?: Folder;
   
   constructor(private folderService: FolderService, private messageService: MessageService) { }
@@ -28,7 +28,7 @@ export class FoldersComponent implements OnInit {
 
   getFolders(): void {
     this.folderService.getFolders()
-        .subscribe(folders => this.folders = folders);
+        .subscribe(folders => this.root.children = folders);
   }
 
   add(name: string): void {
@@ -36,11 +36,9 @@ export class FoldersComponent implements OnInit {
     if (!name) { return; }
     this.folderService.addFolder({ name } as Folder)
       .subscribe(folder => {
-        this.folders.push(folder);
+        this.root.children?.push(folder);
       });
   }
 
-  drop(event: CdkDragDrop<string[]>) {
-    moveItemInArray(this.folders, event.previousIndex, event.currentIndex);
-  }
+
 }

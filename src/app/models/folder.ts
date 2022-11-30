@@ -8,6 +8,6 @@ export interface Folder {
     children?: Folder[];
     bookmarks?: Bookmark[];
     tags?: Tag[];
-    created_at: Date;
-    updated_at: Date;
+    created_at?: Date;
+    updated_at?: Date;
 }

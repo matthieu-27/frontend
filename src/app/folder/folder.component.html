@@ -22,4 +22,11 @@
 >
   x
 </button>
-<app-folder *ngFor="let child of folder.children" [folder]="child"></app-folder>
+<!-- <div *ngFor="let tag of folder.tags">
+  {{ tag.name }}
+</div> -->
+<app-folder
+  *ngFor="let child of folder.children"
+  [parent]="folder"
+  [folder]="child"
+></app-folder>
