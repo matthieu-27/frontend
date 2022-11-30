@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Folder } from '../models/folder'; 
 import { FolderService } from '../services/api-service/folder.service'; 
 import { MessageService } from '../services/misc-service/message.service';
-import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
+import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-folders',
@@ -39,6 +39,5 @@ export class FoldersComponent implements OnInit {
         this.root.children?.push(folder);
       });
   }
-
 
 }

@@ -1,11 +1,13 @@
 <h2>My Folders</h2>
 <!-- <ul class="folders" cdkDropList (cdkDropListDropped)="drop($event)"> -->
-<div class="folders">
-  <app-folder
-    *ngFor="let folder of root.children"
-    [parent]="root"
-    [folder]="folder"
-  ></app-folder>
+<div>
+  <div class="folders">
+    <app-folder
+      *ngFor="let folder of root.children"
+      [parent]="root"
+      [folder]="folder"
+    ></app-folder>
+  </div>
 </div>
 <!-- <div>
   <label for="new-folder">Folder name: </label>

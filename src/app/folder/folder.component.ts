@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Folder } from '../models/folder';
-import { Tag } from '../models/tag';
 import { FolderService } from '../services/api-service/folder.service';
+import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-folder',
@@ -19,9 +19,12 @@ export class FolderComponent {
   delete(folder: Folder): void {
     this.folderService.deleteFolder(folder.id).subscribe({
       next:() => {
-        this.parent!.children  = [...this.parent!.children!.filter( f => f.id !== this.folder.id)];
-        console.log(this.parent?.children)
+        this.parent!.children = this.parent!.children!.filter( f => f.id !== this.folder.id);
       }
     });
+  }
+
+  drop(event: CdkDragDrop<string[]>) {
+    moveItemInArray(this.folder.tags!, event.previousIndex, event.currentIndex);
   }
 }

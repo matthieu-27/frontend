@@ -1,13 +1,10 @@
 /* foldersComponent's private CSS styles */
 app-folder {
     margin-left: 10px;
-    display: list-item;
     position: relative;
 }
 
-app-folder:hover {
-    left: .1em;
-}
+
 
 input {
     display: block;
@@ -70,8 +67,8 @@ a:active {
 
 button.delete {
     position: absolute;
-    left: 210px;
-    top: 5px;
+    right: 0;
+    top: 12px;
     background-color: white;
     color: #525252;
     font-size: 1.1rem;
@@ -82,4 +79,17 @@ button.delete {
 button.delete:hover {
     background-color: #525252;
     color: white;
+}
+
+.tag {
+    width: 120px;
+    height: 40px;
+    background-color: #666;
+    color: #e6e6e6;
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 5vw;
 }
