@@ -67,7 +67,7 @@ export class FolderService extends BaseService {
 
     return this.http.delete<Folder>(url).pipe(
       tap(_ => this.log(`deleted folder id=${id}`)),
-      catchError(this.handleError<Folder>('deleteHero'))
+      catchError(this.handleError<Folder>('deleteFolder'))
     );
   }
 }
