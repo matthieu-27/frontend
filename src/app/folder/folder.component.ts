@@ -11,10 +11,12 @@ export class FolderComponent {
 
   @Input() folder!: Folder;
 
-  constructor(private folderService: FolderService){
+  constructor(private folderService: FolderService, ){
   }
 
   delete(folder: Folder): void {
     this.folderService.deleteFolder(folder.id).subscribe();
   }
+
+
 }

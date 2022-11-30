@@ -40,11 +40,6 @@ export class FoldersComponent implements OnInit {
       });
   }
 
-  delete(folder: Folder): void {
-    this.folders = this.folders.filter(h => h !== folder);
-    this.folderService.deleteFolder(folder.id).subscribe();
-  }
-
   drop(event: CdkDragDrop<string[]>) {
     moveItemInArray(this.folders, event.previousIndex, event.currentIndex);
   }

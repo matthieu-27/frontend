@@ -4,9 +4,10 @@
     list-style-type: none;
     padding: 0;
     width: 15em;
-
+    display: list-item;
 }
 
 app-folder {
     position: relative;
+    display: list-item;
 }
