@@ -18,7 +18,6 @@ export class FoldersComponent implements OnInit {
 
   ngOnInit(): void {
     this.getFolders();
-
   }
 
   onSelect(folder: Folder): void {

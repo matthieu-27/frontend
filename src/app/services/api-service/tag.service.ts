@@ -24,5 +24,13 @@ export class TagService extends BaseService {
       );
   }
 
+  /** GET folder by id. Will 404 if id not found */
+  getFolderTags(id: number): Observable<Tag[]> {
+    const url = `${environment.apis.bookmarks}folders/${id}/tags`;
+    return this.http.get<Tag[]>(url).pipe(
+      tap(_ => this.log(`fetched folder id=${id}`)),
+      catchError(this.handleError<Tag[]>(`getFolderTags id=${id}`))
+    );
+  }
 
 }

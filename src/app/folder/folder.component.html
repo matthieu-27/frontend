@@ -22,10 +22,8 @@
 >
   x
 </button>
-<div cdkDropList (cdkDropListDropped)="drop($event)">
-  <div class="tag" *ngFor="let tag of folder.tags" cdkDrag>
-    {{ tag.name }}
-  </div>
+<div>
+  <app-tags [folder]="folder"></app-tags>
 </div>
 <app-folder
   *ngFor="let child of folder.children"
