@@ -17,6 +17,13 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { FolderComponent } from './folder/folder.component';
+import { HeaderComponent } from './header/header.component';
+import { FeatherModule } from 'angular-feather';
+import { allIcons } from 'angular-feather/icons';
+import { GridComponent } from './grid/grid.component';
+import { FooterComponent } from './footer/footer.component';
+import { DarkModeToggle } from './header/dark-mode-toggle/dark-mode-toggle.component';
+
 
 @NgModule({
   declarations: [
@@ -30,7 +37,10 @@ import { FolderComponent } from './folder/folder.component';
     BookmarkDetailComponent,
     UserDetailComponent,
     FolderComponent,
-    
+    HeaderComponent,
+    GridComponent,
+    FooterComponent,
+    DarkModeToggle
   ],
   imports: [
     BrowserModule,
@@ -40,8 +50,9 @@ import { FolderComponent } from './folder/folder.component';
     ReactiveFormsModule,
     AuthModule,
     BrowserAnimationsModule,
-    DragDropModule
-  ],
+    DragDropModule,
+    FeatherModule.pick(allIcons)
+    ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: UserTokenInterceptor, multi: true}],
   bootstrap: [AppComponent]
 })

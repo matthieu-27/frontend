@@ -1,0 +1,39 @@
+:host {
+    display: grid;
+    background: #242424;
+    grid-template-areas: ". header .";
+    grid-template-columns: minmax(60px, 12vw) auto minmax(60px, 12vw);
+    grid-template-rows: 1fr;
+    height: 60px;
+}
+
+header {
+    background-color: #242424;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    grid-area: header;
+}
+
+div {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: auto;
+}
+
+div h1 {
+    color: #eaeaea;
+    font-weight: 500;
+    font-family: 'Roboto', Arial, sans-serif;
+    font-size: 18px;
+    margin: 0 0 0 16px;
+}
+
+
+i-feather {
+    align-self: center;
+    margin-right: 16px;
+    color: #f29400;
+    stroke-width: 3;
+}
