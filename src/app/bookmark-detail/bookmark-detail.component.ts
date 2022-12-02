@@ -4,7 +4,7 @@ import { Bookmark } from '../models/bookmark';
 import { Tag } from '../models/tag';
 import { BookmarkService } from '../services/api-service/bookmark.service';
 import { TagService } from '../services/api-service/tag.service';
-import { MessageService } from '../services/misc-service/message.service';
+import { MessageService } from '../services/ui-service/message.service';
 
 @Component({
   selector: 'app-bookmark-detail',

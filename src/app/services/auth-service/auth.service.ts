@@ -1,9 +1,8 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, of } from 'rxjs';
-import { MessageService } from '../misc-service/message.service';
+import { MessageService } from '../ui-service/message.service';
 import { environment } from 'src/environments/environment';
-import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'

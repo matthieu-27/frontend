@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { Folder } from 'src/app/models/folder'; 
-import { MessageService } from '../misc-service/message.service'; 
+import { MessageService } from '../ui-service/message.service'; 
 import { Bookmark } from 'src/app/models/bookmark'; 
 import { environment } from 'src/environments/environment';
 import { BaseService } from './base.service';

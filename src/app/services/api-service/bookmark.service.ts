@@ -5,7 +5,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 
 import { Bookmark } from 'src/app/models/bookmark'; 
 import { environment } from 'src/environments/environment';
-import { MessageService } from '../misc-service/message.service';  
+import { MessageService } from '../ui-service/message.service';  
 
 @Injectable({
   providedIn: 'root'

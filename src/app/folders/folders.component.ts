@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Folder } from '../models/folder'; 
 import { FolderService } from '../services/api-service/folder.service'; 
-import { MessageService } from '../services/misc-service/message.service';
+import { MessageService } from '../services/ui-service/message.service';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 
 @Component({

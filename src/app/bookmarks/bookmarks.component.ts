@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Bookmark } from '../models/bookmark'; 
 import { BookmarkService } from '../services/api-service/bookmark.service'; 
 import { Folder } from '../models/folder'; 
-import { MessageService } from '../services/misc-service/message.service'; 
+import { MessageService } from '../services/ui-service/message.service'; 
 
 @Component({
   selector: 'app-bookmarks',

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../services/auth-service/auth.service'; 
-import { MessageService } from '../services/misc-service/message.service';
+import { MessageService } from '../services/ui-service/message.service';
 import { UserService } from '../services/api-service/user.service';
 
 @Component({
