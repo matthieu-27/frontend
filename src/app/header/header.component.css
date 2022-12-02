@@ -21,7 +21,6 @@ div {
 }
 
 div h1 {
-    color: #eaeaea;
     font-weight: 500;
     font-family: 'Roboto', Arial, sans-serif;
     font-size: 18px;
@@ -32,6 +31,5 @@ div h1 {
 i-feather {
     align-self: center;
     margin-right: 16px;
-    color: #f29400;
     stroke-width: 3;
 }
