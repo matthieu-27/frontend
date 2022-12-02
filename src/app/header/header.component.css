@@ -1,6 +1,5 @@
 :host {
     display: grid;
-    background: #242424;
     grid-template-areas: ". header .";
     grid-template-columns: minmax(60px, 12vw) auto minmax(60px, 12vw);
     grid-template-rows: 1fr;
@@ -8,7 +7,6 @@
 }
 
 header {
-    background-color: #242424;
     display: flex;
     align-items: center;
     justify-content: space-between;

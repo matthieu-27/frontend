@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { DarkModeService } from 'angular-dark-mode';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'AMIO-FAV';
+
+  constructor(private darkModeService: DarkModeService){
+
+  }
+
 }

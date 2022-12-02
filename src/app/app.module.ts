@@ -23,6 +23,7 @@ import { allIcons } from 'angular-feather/icons';
 import { GridComponent } from './grid/grid.component';
 import { FooterComponent } from './footer/footer.component';
 import { DarkModeToggle } from './header/dark-mode-toggle/dark-mode-toggle.component';
+import { WrapContainerComponent } from './wrap-container/wrap-container.component';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { DarkModeToggle } from './header/dark-mode-toggle/dark-mode-toggle.compo
     HeaderComponent,
     GridComponent,
     FooterComponent,
-    DarkModeToggle
+    DarkModeToggle,
+    WrapContainerComponent
   ],
   imports: [
     BrowserModule,

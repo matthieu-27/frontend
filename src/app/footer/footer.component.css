@@ -1,6 +1,5 @@
 :host {
     display: grid;
-    background: #242424;
     grid-template-areas: ". footer .";
     grid-template-columns: minmax(60px, 12vw) auto minmax(60px, 12vw);
     grid-template-rows: 1fr;
@@ -12,5 +11,4 @@ footer {
     justify-content: space-between;
     align-items: center;
     grid-area: footer;
-    color: #eaeaea;
 }
