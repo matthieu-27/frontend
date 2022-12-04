@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Output } from '@angular/core';
+import { Observable } from 'rxjs';
+import { AuthService } from '../services/auth-service/auth.service';
 
 
 @Component({
@@ -7,6 +9,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
+
+  logged: boolean;
+
+  @Output() userMenuActive: boolean = false;
+  
+  constructor(private authService: AuthService){
+    this.logged = this.authService.isLogged();
+  }
+
+  userMenuClickHandle(): void{
+    this.userMenuActive = !this.userMenuActive;
+  }
 
 
 }

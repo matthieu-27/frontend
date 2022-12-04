@@ -20,7 +20,7 @@ body {
 }
 
 body:not(.dark-mode-preloading) {
-    transition: all 0.3s linear;
+    transition: background-color 0.3s linear, color 0.3s linear;
 }
 
 .dark-mode {
@@ -28,7 +28,15 @@ body:not(.dark-mode-preloading) {
     color: #eaeaea;
 }
 
+.dark-mode * {
+    color: #eaeaea;
+}
+
 .light-mode {
     background-color: #eaeaea;
+    color: #242424;
+}
+
+.light-mode {
     color: #242424;
 }

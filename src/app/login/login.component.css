@@ -1,0 +1,22 @@
+:host {
+    height: calc(100% - 240px);
+    background-color: #333;
+    border-radius: 16px;
+    color: #eaeaea;
+}
+
+:host div {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+    grid-template-areas: "labels forms";
+}
+
+label {
+    grid-area: labels;
+}
+
+input {
+    grid-area: forms;
+}

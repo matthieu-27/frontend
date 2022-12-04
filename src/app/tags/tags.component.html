@@ -1,10 +1,10 @@
-<div
+<!-- <div
   cdkDropList
   #tagList="cdkDropList"
   [cdkDropListData]="tags"
   (cdkDropListDropped)="drop($event)"
->
-  <div *ngFor="let tag of tags" cdkDrag>
-    {{ tag.name }}
-  </div>
+> -->
+<div *ngFor="let tag of tags" cdkDrag>
+  {{ tag.name }}
 </div>
+<!-- </div> -->

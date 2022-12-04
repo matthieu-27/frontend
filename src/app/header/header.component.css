@@ -4,6 +4,7 @@
     grid-template-columns: minmax(60px, 12vw) auto minmax(60px, 12vw);
     grid-template-rows: 1fr;
     height: 60px;
+    background-color: #242424;
 }
 
 header {
@@ -11,6 +12,10 @@ header {
     align-items: center;
     justify-content: space-between;
     grid-area: header;
+}
+
+header * {
+    color: #eaeaea;
 }
 
 div {
@@ -30,6 +35,5 @@ div h1 {
 
 i-feather {
     align-self: center;
-    margin-right: 16px;
     stroke-width: 3;
 }

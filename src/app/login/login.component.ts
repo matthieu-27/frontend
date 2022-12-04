@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../services/auth-service/auth.service'; 
 import { MessageService } from '../services/ui-service/message.service';
-import { UserService } from '../services/api-service/user.service';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +16,7 @@ export class LoginComponent {
     password: this.fb.control('password', Validators.required)
   });
 
-  constructor(private fb: FormBuilder, private messageService: MessageService, private userService: UserService, public authService: AuthService) {}
+  constructor(private fb: FormBuilder, private messageService: MessageService, public authService: AuthService) {}
 
   login(): void {
     if(this.userForm.value.email && this.userForm.value.password) {
