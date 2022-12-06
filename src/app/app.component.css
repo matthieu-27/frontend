@@ -1,0 +1,60 @@
+:host {
+    display: grid;
+    grid-template-areas: ". header ."
+                         ". main ."
+                         ". footer .";
+    grid-template-columns: minmax(60px, 12vw) auto minmax(60px, 12vw);
+    grid-template-rows: var(--header-height) calc(100vh - calc(var(--header-height) + var(--footer-height))) var(--footer-height);
+    height: 60px;
+    font-family: 'Roboto', Arial, sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    grid-area: header;
+}
+
+div {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: auto;
+}
+
+i-feather {
+    align-self: center;
+    stroke-width: 2;
+    width: 36px;
+    height: 36px;
+}
+
+header i-feather {
+    margin-right: 12px;
+}
+
+main {
+    grid-area: main;
+    margin: 16px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div h1 {
+    font-weight: 500;
+    font-size: 24px;
+    margin-left: 12px;
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    grid-area: footer;
+}

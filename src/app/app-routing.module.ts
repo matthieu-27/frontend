@@ -6,6 +6,7 @@ import { BookmarksComponent } from './bookmarks/bookmarks.component';
 import { BookmarkDetailComponent } from './bookmark-detail/bookmark-detail.component';
 import { TagsComponent } from './tags/tags.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
   { path: 'folders', component: FoldersComponent },
@@ -13,7 +14,8 @@ const routes: Routes = [
   { path: 'bookmarks', component: BookmarksComponent},
   { path: 'bookmark/:id', component: BookmarkDetailComponent},
   { path: 'tags', component: TagsComponent},
-  { path: 'user/:id', component: UserDetailComponent}
+  { path: 'user/:id', component: UserDetailComponent},
+  { path: 'login', component: LoginComponent}
 ];
 
 @NgModule({

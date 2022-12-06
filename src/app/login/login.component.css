@@ -1,36 +1,37 @@
 :host {
+    grid-area: main;
+    margin: 16px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+:host > div {
     position: relative;
-    width: 100%;
-    height: calc(100% - 240px);
-    background-color: #242424;
-    border-radius: 16px;
-    color: #eaeaea;
+    width: 480px;
+    height: 500px;
+    border-radius: 12px;
+    background: var(--white);
 }
 
-:host h2 {
-    font-weight: 400;
-    font-size: 32px;
-    margin-left: 12px;
+.dark-mode :host > div{
+    background: var(--black);
 }
 
-:host > div > form > div {
+form > div {
     display: grid;
-    width: 100%;
+    grid-template-rows: repeat(4, 1fr);
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 1fr;
-    grid-template-areas: "labels forms";
-    padding: 0 12px;
 }
 
-label {
-    grid-area: labels;
-    color: #eaeaea;
-    margin-left: 12px;
+input, label {
+    margin: 12px;
 }
 
-input {
-    grid-area: forms;
-    width: 75%;
+button {
+    margin: 12px;
+    width: fit-content;
+    justify-self: end;
 }
 
 .register {
@@ -38,7 +39,6 @@ input {
     bottom: 0;
     width: 100%;
     height: 8vh;
-    background-color: #da8500;
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -46,16 +46,14 @@ input {
     border-radius: 0 0 12px 12px;
 }
 
-.register h2 {
-    display: inline;
+h2 {
     font-weight: 400;
     font-size: 32px;
-    padding-right: 12px;
-    margin: 0;
-    color: #242424;
+    margin: 12px;
 }
 
 .register i-feather{
     width: 42px;
     height: 42px;
 }
+

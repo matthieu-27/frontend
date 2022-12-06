@@ -1,25 +1,29 @@
-<div *ngIf="!(authService.logged$ | async)">
-  <h2>Login</h2>
-  <form (ngSubmit)="login()" [formGroup]="userForm">
-    <div>
-      <label>Email</label
-      ><input type="email" formControlName="email" placeholder="me@you.fr" />
+<div class="box">
+  <form *ngIf="!(authService.logged$ | async)" (ngSubmit)="login()" [formGroup]="userForm">
+      <h2>Login</h2>
+      <div>
+        <label>Email</label
+          ><input
+            type="email"
+            formControlName="email"
+            placeholder="email"
+          />
+        <label>Password</label
+        ><input
+          type="password"
+          formControlName="password"
+          placeholder="password"
+        />
+        <button (click)="reset()">reset</button>
+      <button type="submit" [disabled]="userForm.invalid">Login</button>
     </div>
-    <div>
-      <label>Password</label
-      ><input
-        type="password"
-        formControlName="password"
-        placeholder="password"
-      />
-    </div>
-    <button type="submit" [disabled]="userForm.invalid">Login</button>
-  </form>
-  <button *ngIf="authService.logged$ | async" type="button" (click)="logout()">
-    logout
-  </button>
-</div>
-<div class="register">
-  <h2>Inscription</h2>
-  <i-feather name="arrow-right"></i-feather>
-</div>
+    </form>
+
+    <button *ngIf="authService.logged$ | async" type="button" (click)="logout()">
+      logout
+    </button>
+    <div class="register" *ngIf="!(authService.logged$ | async)">
+     <h2>Inscription</h2>
+     <i-feather name="arrow-right"></i-feather>
+   </div>
+ </div>

@@ -3,6 +3,13 @@
 
 :root {
     box-sizing: border-box;
+    --header-height: 60px;
+    --footer-height: 60px;
+    --primary-color: hsl(216deg 48% 38%);
+    --secondary-color: hsl(73deg 87% 40%);
+    --tertiary-color: hsl(37deg 100% 47%);
+    --white: hsl(0deg 0% 92%);
+    --black: hsl(0deg 0% 14%);
 }
 
 *,
@@ -28,7 +35,7 @@ body:not(.dark-mode-preloading) {
     color: #eaeaea;
 }
 
-.dark-mode * {
+.dark-mode *{
     color: #eaeaea;
 }
 
@@ -37,6 +44,56 @@ body:not(.dark-mode-preloading) {
     color: #242424;
 }
 
-.light-mode {
+.light-mode * {
     color: #242424;
 }
+   
+.light-mode .box:before {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: var(--secondary-color);
+    transform: translate3d(0px, 0, 0) scale(1.0);
+    filter: blur(45px);
+    opacity: var(0.6);
+    transition: opacity 0.3s;
+    border-radius: inherit;
+}
+
+.dark-mode .box:before {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: var(--tertiary-color);
+    transform: translate3d(0px, 0, 0) scale(1.0);
+    filter: blur(45px);
+    opacity: var(0.6);
+    transition: opacity 0.3s;
+    border-radius: inherit;
+}
+
+/* 
+* Prevents issues when the parent creates a 
+* stacking context. (For example, using the transform
+* property )
+*/
+.box::after {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: inherit;
+    border-radius: inherit;
+}
+        

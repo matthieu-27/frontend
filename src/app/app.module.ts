@@ -11,19 +11,15 @@ import { BookmarksComponent } from './bookmarks/bookmarks.component';
 import { LoginComponent } from './login/login.component';
 import { AuthModule } from './auth/auth.module';
 import { UserTokenInterceptor } from './auth/interceptors/user-token/user-token.interceptor';
-import { TagsComponent } from './tags/tags.component';
 import { BookmarkDetailComponent } from './bookmark-detail/bookmark-detail.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { FolderComponent } from './folder/folder.component';
-import { HeaderComponent } from './header/header.component';
 import { FeatherModule } from 'angular-feather';
 import { allIcons } from 'angular-feather/icons';
-import { GridComponent } from './grid/grid.component';
-import { FooterComponent } from './footer/footer.component';
-import { DarkModeToggle } from './header/dark-mode-toggle/dark-mode-toggle.component';
-import { WrapContainerComponent } from './wrap-container/wrap-container.component';
+import { DarkModeToggle } from './dark-mode-toggle/dark-mode-toggle.component';
+import { TagsComponent } from './tags/tags.component';
 
 
 @NgModule({
@@ -34,15 +30,11 @@ import { WrapContainerComponent } from './wrap-container/wrap-container.componen
     MessagesComponent,
     BookmarksComponent,
     LoginComponent,
-    TagsComponent,
     BookmarkDetailComponent,
     UserDetailComponent,
     FolderComponent,
-    HeaderComponent,
-    GridComponent,
-    FooterComponent,
     DarkModeToggle,
-    WrapContainerComponent
+    TagsComponent
   ],
   imports: [
     BrowserModule,

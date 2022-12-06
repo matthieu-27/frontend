@@ -20,11 +20,8 @@
   title="delete folder"
   (click)="delete(folder)"
 >
-  x
+  <i-feather name="arrow-down"></i-feather>
 </button>
-<div>
-  <app-tags [folder]="folder"></app-tags>
-</div>
 <app-folder
   *ngFor="let child of folder.children"
   [parent]="folder"
