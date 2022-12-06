@@ -13,11 +13,20 @@ a {
     text-decoration: none;
 }
 
-header {
+header{
     display: flex;
     align-items: center;
     justify-content: space-between;
     grid-area: header;
+}
+
+.light-mode > :host > header {
+    border-bottom: 1px solid var(--black);
+}
+
+.dark-mode > :host > header {
+    border-bottom: 1px solid var(--white);
+
 }
 
 div {
@@ -57,4 +66,13 @@ footer {
     justify-content: space-between;
     align-items: center;
     grid-area: footer;
+}
+
+.light-mode > :host > footer {
+    border-top: 1px solid var(--black);
+}
+
+.dark-mode > :host > footer {
+    border-top: 1px solid var(--white);
+
 }
