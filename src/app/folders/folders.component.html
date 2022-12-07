@@ -6,6 +6,7 @@
       *ngFor="let folder of root.children"
       [parent]="root"
       [folder]="folder"
+      (click)="showHide(folder)"
     ></app-folder>
   </div>
 </div>

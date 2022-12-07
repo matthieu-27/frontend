@@ -11,7 +11,7 @@ import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/dr
 })
 export class FoldersComponent implements OnInit {
 
-  root: Folder = <Folder>{ id: 0, name: "", children: [] };
+  root: Folder = <Folder>{ id: 0, name: "", children: [], hidden: false };
   selectedFolder?: Folder;
   
   constructor(private folderService: FolderService, private messageService: MessageService) { }
@@ -37,6 +37,10 @@ export class FoldersComponent implements OnInit {
       .subscribe(folder => {
         this.root.children?.push(folder);
       });
+  }
+
+  showHide(folder: Folder): void {
+    folder.hidden = !folder.hidden;
   }
 
 }

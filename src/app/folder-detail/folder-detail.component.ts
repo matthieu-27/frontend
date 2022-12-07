@@ -18,10 +18,13 @@ export class FolderDetailComponent implements OnInit {
     private route: ActivatedRoute,
     private folderService: FolderService,
     private location: Location
-  ) { }
+  ) { 
+  
+  }
 
   ngOnInit(): void {
     this.getFolder();
+
   }
   
   getFolder(): void {

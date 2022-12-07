@@ -7,9 +7,7 @@
   </div>
   <button type="button" (click)="save()">save</button>
   <button type="button" (click)="goBack()">go back</button>
-  <div *ngIf="folder.bookmarks">
     <div *ngFor="let bookmark of folder.bookmarks">
       <a href="{{ bookmark.url }}">{{ bookmark.title }}</a>
     </div>
-  </div>
 </div>

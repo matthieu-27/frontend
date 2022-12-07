@@ -2,14 +2,7 @@
 :host{
     grid-area: main;
     margin: 16px 0;
-}
-
-.folders {
-    margin: 0 0 2em 0;
-    list-style-type: none;
-    padding: 0;
     display: flex;
     flex-direction: column;
-    gap: 24px;
-    align-items: center;
+    flex-wrap: wrap;
 }

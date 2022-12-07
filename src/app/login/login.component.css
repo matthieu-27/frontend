@@ -57,12 +57,7 @@ button {
     padding: 12px;
     border-radius: 0 0 12px 12px;
     background-color: var(--blackish);
-}
-
-h2 {
-    font-weight: 400;
-    font-size: 32px;
-    margin: 12px;
+    cursor: pointer;
 }
 
 .register i-feather{

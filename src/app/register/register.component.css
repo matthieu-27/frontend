@@ -1,0 +1,34 @@
+:host{
+    grid-area: main;
+    margin: 16px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box{
+    position: relative;
+    width: 480px;
+    height: 500px;
+    border-radius: 12px;
+    padding:24px;
+    border-radius: 12px;
+    border-width: 1px;
+    border-style: solid;
+}
+
+form > div {
+    display: grid;
+    grid-template-rows: repeat(5, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+}
+
+input, label {
+    margin: 12px;
+}
+
+button {
+    margin: 12px;
+    width: fit-content;
+    justify-self: end;
+}

@@ -22,8 +22,8 @@
     <button *ngIf="authService.logged$ | async" type="button" (click)="logout()">
       logout
     </button>
-    <div class="register" *ngIf="!(authService.logged$ | async)">
-     <h2>Inscription</h2>
+    <div class="register" *ngIf="!(authService.logged$ | async)" (click)="register()">
+      <h2>Inscription</h2>
      <i-feather name="arrow-right"></i-feather>
    </div>
  </div>

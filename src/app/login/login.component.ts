@@ -33,6 +33,10 @@ export class LoginComponent {
     this.authService.logout();
   }
 
+  register(): void {
+    this.router.navigate(["/register"]);
+  }
+  
   reloadPage(): void {
     window.location.reload();
   }

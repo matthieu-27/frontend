@@ -20,6 +20,7 @@ import { FeatherModule } from 'angular-feather';
 import { allIcons } from 'angular-feather/icons';
 import { DarkModeToggle } from './dark-mode-toggle/dark-mode-toggle.component';
 import { TagsComponent } from './tags/tags.component';
+import { RegisterComponent } from './register/register.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { TagsComponent } from './tags/tags.component';
     UserDetailComponent,
     FolderComponent,
     DarkModeToggle,
-    TagsComponent
+    TagsComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

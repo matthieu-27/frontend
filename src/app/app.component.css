@@ -55,12 +55,6 @@ main {
     align-items: center;
 }
 
-div h1 {
-    font-weight: 500;
-    font-size: 24px;
-    margin-left: 12px;
-}
-
 footer {
     display: flex;
     justify-content: space-between;

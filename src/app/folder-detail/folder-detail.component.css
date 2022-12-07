@@ -1,4 +1,8 @@
-/* HeroDetailComponent's private CSS styles */
+:host{
+    grid-area: main;
+    margin: 16px 0;
+}
+
 label {
     color: #435960;
     font-weight: bold;
