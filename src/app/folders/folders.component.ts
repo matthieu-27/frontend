@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Folder } from '../models/folder'; 
 import { FolderService } from '../services/api-service/folder.service'; 
 import { MessageService } from '../services/ui-service/message.service';
-import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-folders',
@@ -12,7 +11,7 @@ import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/dr
 export class FoldersComponent implements OnInit {
 
   root: Folder = <Folder>{ id: 0, name: "", children: [], hidden: false };
-  selectedFolder?: Folder;
+  selectedFolder?: Folder = undefined;
   
   constructor(private folderService: FolderService, private messageService: MessageService) { }
 
@@ -38,9 +37,4 @@ export class FoldersComponent implements OnInit {
         this.root.children?.push(folder);
       });
   }
-
-  showHide(folder: Folder): void {
-    folder.hidden = !folder.hidden;
-  }
-
 }

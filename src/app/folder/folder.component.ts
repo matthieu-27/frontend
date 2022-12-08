@@ -1,8 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Folder } from '../models/folder';
 import { FolderService } from '../services/api-service/folder.service';
-import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
-import { Tag } from '../models/tag';
 
 @Component({
   selector: 'app-folder',
@@ -12,8 +10,7 @@ import { Tag } from '../models/tag';
 export class FolderComponent {
   @Input() parent: Folder | undefined;
   @Input() folder!: Folder;
-
-  tags: Tag[] = [];
+  protected isOpen = false;
 
   constructor(private folderService: FolderService){
   }
@@ -25,4 +22,10 @@ export class FolderComponent {
       }
     });
   }
+
+  expand(): void{
+    this.isOpen = !this.isOpen;
+  }
+  
+
 }

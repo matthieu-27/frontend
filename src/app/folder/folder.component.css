@@ -1,14 +1,19 @@
 :host{
-    display: list-item;
-    padding-left: 12px;
-    list-style: none;
-}
-
-:host :host {
-    display: none;
+    display: flex;
+    justify-content: center;
+    width: 192px;
+    height: 192px;
+    background-image: url('../../assets/folder.png');
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 i-feather {
     width: 12px;
     height: 12px;
+}
+
+span{
+    align-self: flex-end;
 }

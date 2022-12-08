@@ -1,29 +1,8 @@
-<!-- <li class="folders">
-  <div routerLink="/folder/{{ folder.id }}">
-    <span class="badge">{{ folder.id }}</span> {{ folder.name }}
-  </div>
-  <button
-    type="button"
-    class="delete"
-    title="delete folder"
-    (click)="delete(folder)"
-  >
-    x
-  </button>
-</li> -->
-<a routerLink="/folder/{{ folder.id }}">
-  <span class="badge">{{ folder.id }}</span> {{ folder.name }}
-</a>
-<button
-  type="button"
-  class="delete"
-  title="delete folder"
-  (click)="delete(folder)"
->
-  <i-feather name="arrow-down"></i-feather>
-</button>
-<app-folder
-  *ngFor="let child of folder.children"
-  [parent]="folder"
-  [folder]="child"
-></app-folder>
+<span (click)="expand()">{{ folder.name }}</span>
+<div *ngIf="isOpen">
+    <app-folder
+    *ngFor="let child of folder.children"
+    [parent]="folder"
+    [folder]="child"
+    ></app-folder>
+</div>

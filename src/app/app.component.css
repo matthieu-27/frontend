@@ -48,11 +48,7 @@ header i-feather {
 }
 
 main {
-    grid-area: main;
-    margin: 16px 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    grid-area: main;    
 }
 
 footer {
@@ -68,5 +64,4 @@ footer {
 
 .dark-mode > :host > footer {
     border-top: 1px solid var(--white);
-
 }

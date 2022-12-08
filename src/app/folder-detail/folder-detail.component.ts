@@ -3,7 +3,6 @@ import { Folder } from '../models/folder';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { FolderService } from '../services/api-service/folder.service'; 
-import { Bookmark } from '../models/bookmark';
 
 @Component({
   selector: 'app-folder-detail',

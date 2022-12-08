@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { Bookmark } from '../models/bookmark';
 import { Tag } from '../models/tag';
 import { BookmarkService } from '../services/api-service/bookmark.service';

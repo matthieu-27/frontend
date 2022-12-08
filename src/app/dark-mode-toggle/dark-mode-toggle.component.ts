@@ -2,8 +2,6 @@ import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { DarkModeService } from 'angular-dark-mode';
 
-// dark-mode-toggle.component.ts
-
 @Component({
   selector: 'app-dark-mode-toggle',
     templateUrl: './dark-mode-toggle.component.html',

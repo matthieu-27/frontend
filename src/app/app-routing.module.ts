@@ -17,7 +17,8 @@ const routes: Routes = [
   { path: 'tags', component: TagsComponent},
   { path: 'user/:id', component: UserDetailComponent},
   { path: 'login', component: LoginComponent},
-  { path: 'register', component: RegisterComponent}
+  { path: 'register', component: RegisterComponent},
+  { path: '', component: FoldersComponent}
 ];
 
 @NgModule({

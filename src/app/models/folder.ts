@@ -10,5 +10,4 @@ export interface Folder {
     tags?: Tag[];
     created_at?: Date;
     updated_at?: Date;
-    hidden: boolean;
 }

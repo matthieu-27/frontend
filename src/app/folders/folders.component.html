@@ -1,34 +1,4 @@
-<h2>My Folders</h2>
-<!-- <ul class="folders" cdkDropList (cdkDropListDropped)="drop($event)"> -->
-<div>
-  <div class="folders">
-    <app-folder
-      *ngFor="let folder of root.children"
-      [parent]="root"
-      [folder]="folder"
-      (click)="showHide(folder)"
-    ></app-folder>
-  </div>
-</div>
-<!-- <div>
-  <label for="new-folder">Folder name: </label>
-  <input id="new-folder" #folderName />
-
-  <button
-    type="button"
-    class="add-button"
-    (click)="add(folderName.value); folderName.value = ''"
-  >
-    Add folder
-  </button>
-</div> -->
-
-<!-- app-fodler 
-  
-  <h1> Title Folder </h1>
-  <div *ngFor="let folder of folder.children">
-    <app-folder [folder] = "folder"></app-folder>
-  </div>
-
-
- -->
+<app-folder *ngFor="let folder of root.children"
+[parent]="root"
+[folder]="folder"
+></app-folder>
