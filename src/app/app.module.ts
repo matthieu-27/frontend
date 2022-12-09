@@ -21,6 +21,7 @@ import { allIcons } from 'angular-feather/icons';
 import { DarkModeToggle } from './dark-mode-toggle/dark-mode-toggle.component';
 import { TagsComponent } from './tags/tags.component';
 import { RegisterComponent } from './register/register.component';
+import { FoldersviewComponent } from './foldersview/foldersview.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { RegisterComponent } from './register/register.component';
     FolderComponent,
     DarkModeToggle,
     TagsComponent,
-    RegisterComponent
+    RegisterComponent,
+    FoldersviewComponent
   ],
   imports: [
     BrowserModule,

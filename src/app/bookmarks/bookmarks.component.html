@@ -1,7 +1,15 @@
-<div *ngIf="bookmarks">
-  <ul>
-    <li *ngFor="let bookmark of bookmarks">
-      <a routerLink="/bookmark/{{ bookmark.id }}">{{ bookmark.title }}</a>
-    </li>
-  </ul>
-</div>
+<ul *ngIf="bookmarks">
+  <li *ngFor="let bookmark of bookmarks">
+    <div>      <a routerLink="/bookmark/{{ bookmark.id }}">{{ bookmark.title }}</a>
+      <p>{{ bookmark.description }}</p>
+    </div>
+    <div>      
+      <button (click)="open(bookmark.url)">
+        <span class="button_top">Open</span>
+      </button>
+      <button (click)="openInNewTab(bookmark.url)">
+        <span class="button_top">Open in new tab</span>
+      </button>
+    </div>
+  </li>
+</ul>

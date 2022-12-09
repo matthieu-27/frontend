@@ -1,4 +1,28 @@
-:host{
-    overflow-y: scroll;
-    overflow-x: hidden;
+ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+li {
+    width: 192px;
+    height: 192px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+li button {
+    justify-self: flex-end;
+}
+
+p{
+    display: inline;
+    margin: 0;
+    padding: 0;
 }

@@ -8,9 +8,10 @@ import { TagsComponent } from './tags/tags.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { FoldersviewComponent } from './foldersview/foldersview.component';
 
 const routes: Routes = [
-  { path: 'folders', component: FoldersComponent },
+  { path: 'folders', component: FoldersviewComponent },
   { path: 'folder/:id', component: FolderDetailComponent},
   { path: 'bookmarks', component: BookmarksComponent},
   { path: 'bookmark/:id', component: BookmarkDetailComponent},
@@ -18,7 +19,7 @@ const routes: Routes = [
   { path: 'user/:id', component: UserDetailComponent},
   { path: 'login', component: LoginComponent},
   { path: 'register', component: RegisterComponent},
-  { path: '', component: FoldersComponent}
+  { path: '', component: FoldersviewComponent}
 ];
 
 @NgModule({
