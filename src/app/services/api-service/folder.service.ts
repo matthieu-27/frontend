@@ -14,7 +14,7 @@ import { BaseService } from './base.service';
 export class FolderService extends BaseService {
 
   constructor(private http: HttpClient) {
-    super(new MessageService());
+    super();
   }
 
   /** GET folders from the server */
@@ -32,15 +32,6 @@ export class FolderService extends BaseService {
     return this.http.get<Folder>(url).pipe(
       tap(_ => this.log(`fetched folder id=${id}`)),
       catchError(this.handleError<Folder>(`getFolder id=${id}`))
-    );
-  }
-
-  /** GET folder by id. Will 404 if id not found */
-  getFolderBookmarks(id: number): Observable<Bookmark[]> {
-    const url = `${environment.apis.bookmarks}folders/${id}/`;
-    return this.http.get<Bookmark[]>(url).pipe(
-      tap(_ => this.log(`fetched bookmarks from folder id=${id}`)),
-      catchError(this.handleError<Bookmark[]>(`getFolderBookmarks id=${id}`))
     );
   }
 

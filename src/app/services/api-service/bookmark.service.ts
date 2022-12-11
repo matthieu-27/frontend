@@ -6,13 +6,15 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { Bookmark } from 'src/app/models/bookmark'; 
 import { environment } from 'src/environments/environment';
 import { MessageService } from '../ui-service/message.service';  
+import { BaseService } from './base.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class BookmarkService {
+export class BookmarkService extends BaseService {
 
-  constructor(private http: HttpClient, private messageService: MessageService) {
+  constructor(private http: HttpClient) {
+    super();
   }
 
   /** GET bookmarks from the server */
@@ -24,37 +26,12 @@ export class BookmarkService {
       );
   }
 
-  /** GET bookmarks inside a Folder */
-  getBookmark(id: number){
-    return this.http.get<Bookmark>(environment.apis.bookmarks + "bookmarks/" + id)
-    .pipe(
-      tap(_ => this.log('fetched bookmarks with id=' + id)),
-      catchError(this.handleError<Bookmark>('getBookmark', ))
+  /** GET folder by id. Will 404 if id not found */
+  getFolderBookmarks(id: number): Observable<Bookmark[]> {
+    const url = `${environment.apis.bookmarks}folders/${id}/bookmarks`;
+    return this.http.get<Bookmark[]>(url).pipe(
+      tap(_ => this.log(`fetched bookmarks from folder id=${id}`)),
+      catchError(this.handleError<Bookmark[]>(`getFolderBookmarks id=${id}`))
     );
   }
-
-  private log(message: string) {
-    this.messageService.add(`BookmarkService: ${message}`);
-  }
-
-  /**
-   * Handle Http operation that failed.
-   * Let the app continue.
-   *
-   * @param operation - name of the operation that failed
-   * @param result - optional value to return as the observable result
-   */
-     private handleError<T>(operation = 'operation', result?: T) {
-      return (error: any): Observable<T> => {
-  
-        // TODO: send the error to remote logging infrastructure
-        console.error(error); // log to console instead
-  
-        // TODO: better job of transforming error for user consumption
-        this.log(`${operation} failed: ${error.message}`);
-  
-        // Let the app keep running by returning an empty result.
-        return of(result as T);
-     };
-    }
 }

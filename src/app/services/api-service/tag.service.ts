@@ -13,7 +13,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 export class TagService extends BaseService {
 
   constructor(private http: HttpClient) { 
-    super(new MessageService());
+    super();
   }
 
   getTags(): Observable<Tag[]>  {
@@ -24,7 +24,15 @@ export class TagService extends BaseService {
       );
   }
 
-  /** GET folder by id. Will 404 if id not found */
+  getTag(id: number): Observable<Tag>{
+    return this.http.get<Tag>(`${environment.apis.bookmarks}tags/${id}`)
+    .pipe(
+      tap(_ => this.log('fetched tags')),
+      catchError(this.handleError<Tag>(`getTag id=${id}`))
+    );
+  }
+
+  /** GET tags by folder id. Will 404 if id not found */
   getFolderTags(id: number): Observable<Tag[]> {
     const url = `${environment.apis.bookmarks}folders/${id}/tags`;
     return this.http.get<Tag[]>(url).pipe(
@@ -32,5 +40,32 @@ export class TagService extends BaseService {
       catchError(this.handleError<Tag[]>(`getFolderTags id=${id}`))
     );
   }
+
+    /** PUT: update the tag on the server */
+    updatetag(tag: Tag): Observable<any> {
+      const url = `${environment.apis.bookmarks}tags/${tag.id}`;
+      return this.http.put(url, tag).pipe(
+        tap(_ => this.log(`updated tag id=${tag.id}`)),
+        catchError(this.handleError<any>('updatetag'))
+      );
+    }
+  
+    /** POST: add a new tag to the server */
+    addtag(tag: Tag): Observable<Tag> {
+      return this.http.post<Tag>(environment.apis.bookmarks + "tags", tag).pipe(
+        tap((newtag: Tag) => this.log(`added tag w/ id=${newtag.id}`)),
+        catchError(this.handleError<Tag>('addtag'))
+      );
+    }
+  
+    /** DELETE: delete the tag from the server */
+    deletetag(id: number): Observable<Tag> {
+      const url = `${environment.apis.bookmarks}tags/${id}`;
+  
+      return this.http.delete<Tag>(url).pipe(
+        tap(_ => this.log(`deleted tag id=${id}`)),
+        catchError(this.handleError<Tag>('deletetag'))
+      );
+    }
 
 }

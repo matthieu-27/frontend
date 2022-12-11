@@ -22,6 +22,8 @@ import { DarkModeToggle } from './dark-mode-toggle/dark-mode-toggle.component';
 import { TagsComponent } from './tags/tags.component';
 import { RegisterComponent } from './register/register.component';
 import { FoldersviewComponent } from './foldersview/foldersview.component';
+import { ContainerComponent } from './container/container.component';
+import { TagDetailComponent } from './tag-detail/tag-detail.component';
 
 
 @NgModule({
@@ -38,7 +40,9 @@ import { FoldersviewComponent } from './foldersview/foldersview.component';
     DarkModeToggle,
     TagsComponent,
     RegisterComponent,
-    FoldersviewComponent
+    FoldersviewComponent,
+    ContainerComponent,
+    TagDetailComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { Folder } from '../models/folder'; 
 import { FolderService } from '../services/api-service/folder.service'; 
 import { MessageService } from '../services/ui-service/message.service';
@@ -11,7 +11,9 @@ import { MessageService } from '../services/ui-service/message.service';
 export class FoldersComponent implements OnInit {
 
   root: Folder = <Folder>{ id: 0, name: "", children: [], hidden: false };
+  @Output()
   selectedFolder?: Folder = undefined;
+  title = "Mes dossiers";
   
   constructor(private folderService: FolderService, private messageService: MessageService) { }
 
@@ -22,6 +24,7 @@ export class FoldersComponent implements OnInit {
   onSelect(folder: Folder): void {
     this.selectedFolder = folder;
     this.messageService.add(`FolderComponent: Selected folder id=${folder.id}`);
+    this.messageService.folder = folder;
   }
 
   getFolders(): void {

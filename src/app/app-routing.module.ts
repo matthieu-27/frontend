@@ -8,18 +8,20 @@ import { TagsComponent } from './tags/tags.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import { FoldersviewComponent } from './foldersview/foldersview.component';
+import { ContainerComponent } from './container/container.component';
+import { TagDetailComponent } from './tag-detail/tag-detail.component';
 
 const routes: Routes = [
-  { path: 'folders', component: FoldersviewComponent },
+  { path: 'folders', component: FoldersComponent },
   { path: 'folder/:id', component: FolderDetailComponent},
   { path: 'bookmarks', component: BookmarksComponent},
   { path: 'bookmark/:id', component: BookmarkDetailComponent},
   { path: 'tags', component: TagsComponent},
+  { path: 'tag/:id', component: TagDetailComponent},
   { path: 'user/:id', component: UserDetailComponent},
   { path: 'login', component: LoginComponent},
   { path: 'register', component: RegisterComponent},
-  { path: '', component: FoldersviewComponent}
+  { path: '', component: ContainerComponent}
 ];
 
 @NgModule({

@@ -7,13 +7,13 @@ import { Observable, of } from 'rxjs';
 })
 export class BaseService {
 
-  constructor(private messageService: MessageService) { }
+  messageService = new MessageService();
 
-  /** Log a FolderService message with the MessageService */
+
+  /** Log a message with the MessageService */
   public log(message: string) {
     this.messageService.add(`BaseService: ${message}`);
   }
-
   /**
    * Handle Http operation that failed.
    * Let the app continue.

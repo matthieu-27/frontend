@@ -1,0 +1,10 @@
+:host{
+    grid-area: tags;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+h2 {
+    width: 100%;
+}

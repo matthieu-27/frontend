@@ -1,0 +1,22 @@
+<div *ngIf="tag">
+  <h2>{{ tag.name | json }} Details</h2>
+  <div><span>id: </span>{{ tag.id }}</div>
+  <div>
+    <label for="tag-name">tag name: </label>
+    <input id="tag-name" [(ngModel)]="tag.name" placeholder="Hero name" />
+    <button type="button" (click)="save()">save</button>
+  </div>
+  <button type="button" (click)="goBack()">go back</button>
+  <div *ngIf="tag.bookmarks.length">
+    <h3>Bookmarks</h3>
+    <div *ngFor="let bm of tag.bookmarks">
+      {{ bm.title }}
+    </div>
+  </div>
+  <div *ngIf="tag.folders.length">
+    <h3>Folders</h3>
+    <div *ngFor="let f of tag.folders">
+      {{ f.name }}
+    </div>
+  </div>
+</div>

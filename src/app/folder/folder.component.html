@@ -1,8 +1,8 @@
-<span (click)="expand()">{{ folder.name }}</span>
-<div *ngIf="isOpen">
-    <app-folder
+<li (click)="expand()">{{ folder.name }}</li>
+<ul *ngIf="isOpen">
+    <li app-folder
     *ngFor="let child of folder.children"
     [parent]="folder"
     [folder]="child"
-    ></app-folder>
-</div>
+    ></li>
+</ul>

@@ -1,18 +1,20 @@
 /* MessagesComponent's private CSS styles */
-h2 {
-    color: #A80000;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: lighter;
+:host {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    width: 100%;
+    height: 100%;
 }
 
 .clear {
-    position: fixed;
+    position: absolute;
     right: 0;
     bottom: 0;
     color: #333;
     background-color: #eee;
-    margin-bottom: 12px;
     padding: 1rem;
+    margin-bottom: 4px;
     border-radius: 4px;
     font-size: 1rem;
 }
@@ -21,15 +23,3 @@ h2 {
     color: white;
     background-color: #42545C;
 }
-
-/* 
-:host {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 10vh;
-    background-color: #242424;
-    color: #eaeaea;
-    overflow: scroll;
-} */

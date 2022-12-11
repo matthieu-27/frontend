@@ -1,3 +1,4 @@
-<div *ngFor="let tag of tags" cdkDrag>
+<!-- <h2>{{ title }}</h2> -->
+<a *ngFor="let tag of tags" routerLink="/tag/{{ tag.id }}">
   {{ tag.name }}
-</div>
+</a>

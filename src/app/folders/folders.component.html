@@ -1,4 +1,10 @@
-<app-folder *ngFor="let folder of root.children"
-[parent]="root"
-[folder]="folder"
-></app-folder>
+<h2>{{ title }}</h2>
+<ul>
+  <li
+    app-folder
+    *ngFor="let folder of root.children"
+    [parent]="root"
+    [folder]="folder"
+    (click)="onSelect(folder)"
+  ></li>
+</ul>

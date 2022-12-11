@@ -1,5 +1,5 @@
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Output, OnInit, EventEmitter } from '@angular/core';
 import { Folder } from '../models/folder';
 import { Tag } from '../models/tag';
 import { TagService } from '../services/api-service/tag.service';
@@ -11,9 +11,9 @@ import { TagService } from '../services/api-service/tag.service';
 })
 export class TagsComponent implements OnInit {
 
-  @Input() folder!: Folder;
   tags! : Tag[];
-
+  title: string = "Mes tags"
+  selectedTag?: Tag;
 
   constructor(private tagService: TagService) { }
 

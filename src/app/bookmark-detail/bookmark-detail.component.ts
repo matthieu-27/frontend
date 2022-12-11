@@ -19,13 +19,8 @@ export class BookmarkDetailComponent implements OnInit {
   constructor(private messageService: MessageService, private bookmarkService: BookmarkService, private tagService: TagService, private route: ActivatedRoute){
 
   }
-
   ngOnInit(): void {
-      this.getBookmark();
   }
 
-  getBookmark(){
-    const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.bookmarkService.getBookmark(id).subscribe(bookmark => this.bookmark = bookmark);
-  }
+
 }

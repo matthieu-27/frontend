@@ -12,8 +12,8 @@ import { MessageService } from '../services/ui-service/message.service';
 })
 export class BookmarksComponent implements OnInit {
 
-  @Input() folder?: Folder;
-  bookmarks?: Array<Bookmark>;
+  bookmarks!: Bookmark[];
+  title = "Mes marque-page";
 
   constructor(private messageService: MessageService, private bookmarkService: BookmarkService, private route: ActivatedRoute) { }
 
@@ -22,8 +22,14 @@ export class BookmarksComponent implements OnInit {
   }
 
   getBookmarks(): void {
-    this.bookmarkService.getBookmarks()
-        .subscribe(bookmarks => this.bookmarks = bookmarks);
+    this.bookmarkService.getBookmarks().subscribe({
+      next: rep => {
+        this.bookmarks = rep;
+      },
+      error: err => {
+        this.messageService.add(err.error);
+      }
+    })
   }
 
   /**
