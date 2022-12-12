@@ -1,9 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, OnChanges } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Bookmark } from '../models/bookmark'; 
 import { BookmarkService } from '../services/api-service/bookmark.service'; 
 import { Folder } from '../models/folder'; 
-import { MessageService } from '../services/ui-service/message.service'; 
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-bookmarks',
@@ -12,25 +12,40 @@ import { MessageService } from '../services/ui-service/message.service';
 })
 export class BookmarksComponent implements OnInit {
 
-  bookmarks!: Bookmark[];
+  @Input() folder!: Folder;
+  bookmarks?: Bookmark[];
   title = "Mes marque-page";
 
-  constructor(private messageService: MessageService, private bookmarkService: BookmarkService, private route: ActivatedRoute) { }
+  constructor(
+    private route: ActivatedRoute,
+    private bookmarkService: BookmarkService,
+    private location: Location
+  ) { 
+   }
+
+  ngOnChanges(){
+    this.getBookmarks(this.folder.id)
+  } 
 
   ngOnInit(): void {
-    this.getBookmarks();
+    this.getBookmarks(this.folder.id);
+  }
+  
+  getBookmarks(id: number): void {
+    this.bookmarkService.getFolderBookmarks(id)
+      .subscribe(bookmarks => this.bookmarks = bookmarks);
   }
 
-  getBookmarks(): void {
-    this.bookmarkService.getBookmarks().subscribe({
-      next: rep => {
-        this.bookmarks = rep;
-      },
-      error: err => {
-        this.messageService.add(err.error);
-      }
-    })
+  goBack(): void {
+    this.location.back();
   }
+
+  // save(): void {
+  //   if (this.folder) {
+  //     this.bookmarkService.updateFolder(this.folder)
+  //       .subscribe(() => this.goBack());
+  //   }
+  // }
 
   /**
    * Open link in current tab

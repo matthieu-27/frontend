@@ -11,9 +11,8 @@ import { MessageService } from '../services/ui-service/message.service';
 export class FoldersComponent implements OnInit {
 
   root: Folder = <Folder>{ id: 0, name: "", children: [], hidden: false };
-  @Output()
-  selectedFolder?: Folder = undefined;
   title = "Mes dossiers";
+  selectedFolder?: Folder;
   
   constructor(private folderService: FolderService, private messageService: MessageService) { }
 
@@ -23,8 +22,6 @@ export class FoldersComponent implements OnInit {
 
   onSelect(folder: Folder): void {
     this.selectedFolder = folder;
-    this.messageService.add(`FolderComponent: Selected folder id=${folder.id}`);
-    this.messageService.folder = folder;
   }
 
   getFolders(): void {
@@ -33,9 +30,11 @@ export class FoldersComponent implements OnInit {
   }
 
   add(name: string): void {
+    let parent_id: number;
+    if(this.selectedFolder) parent_id = this.selectedFolder.id
     name = name.trim();
     if (!name) { return; }
-    this.folderService.addFolder({ name } as Folder)
+    this.folderService.addFolder(this.selectedFolder ? { name } as Folder : { name } as Folder)
       .subscribe(folder => {
         this.root.children?.push(folder);
       });

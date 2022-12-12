@@ -2,8 +2,7 @@
     height: 100%;
     width: 100%;
     display: grid;
-    grid-template-areas: "tags tags"
-                         "folders bookmarks";
-    grid-template-rows: 40% 60%;
+    grid-template-areas: "folders bookmarks";
+    grid-template-rows: 1fr;
     grid-template-columns: repeat(2, 1fr);
 }

@@ -8,3 +8,17 @@
     (click)="onSelect(folder)"
   ></li>
 </ul>
+<div>
+  <label for="new-folder">folder name: </label>
+  <input id="new-folder" #folderName />
+</div>
+
+<button
+  type="button"
+  class="add-button"
+  (click)="add(folderName.value); folderName.value = ''"
+>
+  Add folder
+</button>
+<h3>Marque-pages</h3>
+<app-bookmarks *ngIf="selectedFolder" [folder]="selectedFolder"></app-bookmarks>
