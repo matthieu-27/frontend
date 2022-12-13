@@ -30,13 +30,12 @@ export class FoldersComponent implements OnInit {
   }
 
   add(name: string): void {
-    let parent_id: number;
-    if(this.selectedFolder) parent_id = this.selectedFolder.id
     name = name.trim();
     if (!name) { return; }
-    this.folderService.addFolder(this.selectedFolder ? { name } as Folder : { name } as Folder)
+    this.folderService.addFolder({ name } as Folder)
       .subscribe(folder => {
-        this.root.children?.push(folder);
+        this.root!.children?.push(folder);
       });
   }
+
 }

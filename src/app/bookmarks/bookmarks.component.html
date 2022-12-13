@@ -1,4 +1,6 @@
-<h2>{{ title }}</h2>
-<div *ngFor="let bookmark of bookmarks">
-  {{ bookmark.title }}
+<div *ngIf="bookmarks">
+  <h2>{{ title }}</h2>
+  <div *ngFor="let bookmark of bookmarks">
+    {{ bookmark.title }}
+  </div>
 </div>

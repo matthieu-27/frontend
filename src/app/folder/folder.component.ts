@@ -14,11 +14,20 @@ export class FolderComponent implements OnInit {
   @Input() folder!: Folder;
   protected isOpen = false;
   bookmarks?: Bookmark[];
+  protected addButton = false;
 
   constructor(private folderService: FolderService, private bookmarkService: BookmarkService){
   }
 
   ngOnInit(): void {
+  }
+
+  addFolder(){
+    this.addButton = !this.addButton;
+  }
+
+  expand(): void{
+    this.isOpen = !this.isOpen;
   }
 
   delete(folder: Folder): void {
@@ -29,13 +38,13 @@ export class FolderComponent implements OnInit {
     });
   }
 
-  expand(): void{
-    this.isOpen = !this.isOpen;
+  add(name: string): void {
+    name = name.trim();
+    if (!name) { return; }
+    this.folderService.addFolder({ name } as Folder)
+      .subscribe(folder => {
+        this.parent!.children?.push(folder);
+      });
   }
-
-
-
-
-  
 
 }

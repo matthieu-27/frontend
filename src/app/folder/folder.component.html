@@ -1,8 +1,30 @@
-<li (click)="expand()">{{ folder.name }}</li>
+<li>
+  {{ folder.name }}
+</li>
+<i-feather name="chevron-down" (click)="expand()"></i-feather>
+<i-feather
+  name="{{ addButton ? 'folder-minus' : 'folder-plus' }}"
+  (click)="addFolder()"
+></i-feather>
+<i-feather name="trash-2" class="red" (click)="delete(folder)"></i-feather>
 <ul *ngIf="isOpen">
-    <li app-folder
+  <li
+    app-folder
     *ngFor="let child of folder.children"
     [parent]="folder"
     [folder]="child"
-    ></li>
+  ></li>
 </ul>
+<div *ngIf="addButton" class="add">
+  <div>
+    <label for="new-folder">folder name: </label>
+    <input id="new-folder" #folderName />
+  </div>
+  <button
+    type="button"
+    class="add-button"
+    (click)="add(folderName.value); folderName.value = ''"
+  >
+    Add folder
+  </button>
+</div>
