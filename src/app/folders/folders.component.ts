@@ -1,4 +1,4 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, OnInit, Output, OnChanges } from '@angular/core';
 import { Folder } from '../models/folder'; 
 import { FolderService } from '../services/api-service/folder.service'; 
 import { MessageService } from '../services/ui-service/message.service';
@@ -10,7 +10,7 @@ import { MessageService } from '../services/ui-service/message.service';
 })
 export class FoldersComponent implements OnInit {
 
-  root: Folder = <Folder>{ id: 0, name: "", children: [], hidden: false };
+  root: Folder = <Folder>{ name: "", children: [], parent_id: 0};
   title = "Mes dossiers";
   selectedFolder?: Folder;
   
@@ -20,8 +20,19 @@ export class FoldersComponent implements OnInit {
     this.getFolders();
   }
 
+  ngOnChanges(){
+    this.folderService.getFolders()
+        .subscribe(folders => this.root.children = folders);
+  }
+
   onSelect(folder: Folder): void {
     this.selectedFolder = folder;
+  }
+
+  onFolderAdd(added: boolean){
+    if(added){
+      this.getFolders();
+    }
   }
 
   getFolders(): void {

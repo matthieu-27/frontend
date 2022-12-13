@@ -2,9 +2,9 @@ import { Bookmark } from "./bookmark";
 import { Tag } from "./tag";
 
 export interface Folder {
-    id: number;
+    id?: number;
     name: string;
-    parent_id?: string;
+    parent_id: number;
     description?: string;
     children?: Folder[];
     bookmarks?: Bookmark[];

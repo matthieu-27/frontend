@@ -7,6 +7,7 @@
       [parent]="root"
       [folder]="folder"
       (click)="onSelect(folder)"
+      (addedFolder)="onFolderAdd($event)"
     ></li>
   </ul>
   <app-bookmarks

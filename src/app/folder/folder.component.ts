@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, OnChanges, Output, EventEmitter } from '@angular/core';
 import { Bookmark } from '../models/bookmark';
 import { Folder } from '../models/folder';
 import { BookmarkService } from '../services/api-service/bookmark.service';
@@ -15,11 +15,15 @@ export class FolderComponent implements OnInit {
   protected isOpen = false;
   bookmarks?: Bookmark[];
   protected addButton = false;
+  @Output() addedFolder = new EventEmitter<boolean>();
 
   constructor(private folderService: FolderService, private bookmarkService: BookmarkService){
   }
 
   ngOnInit(): void {
+  }
+
+  ngOnChanges(){
   }
 
   addFolder(){
@@ -31,20 +35,22 @@ export class FolderComponent implements OnInit {
   }
 
   delete(folder: Folder): void {
-    this.folderService.deleteFolder(folder.id).subscribe({
+    this.folderService.deleteFolder(folder.id!).subscribe({
       next:() => {
-        this.parent!.children = this.parent!.children!.filter( f => f.id !== this.folder.id);
+        this.parent!.children = this.parent!.children!.filter( f => f.id! !== this.folder.id);
       }
     });
   }
 
-  add(name: string): void {
+  add(name: string, parent_id: number): void {
     name = name.trim();
     if (!name) { return; }
-    this.folderService.addFolder({ name } as Folder)
+    let folder = <Folder>{name: name, parent_id: parent_id};
+    this.folderService.addFolder(folder)
       .subscribe(folder => {
         this.parent!.children?.push(folder);
       });
+    this.addedFolder.emit(true);
   }
 
 }

@@ -24,11 +24,11 @@ export class BookmarksComponent implements OnInit {
    }
 
   ngOnChanges(){
-    this.getBookmarks(this.folder.id)
+    this.getBookmarks(this.folder.id!)
   } 
 
   ngOnInit(): void {
-    this.getBookmarks(this.folder.id);
+    this.getBookmarks(this.folder.id!);
   }
   
   getBookmarks(id: number): void {
