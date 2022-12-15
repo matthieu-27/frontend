@@ -10,10 +10,7 @@
       (addedFolder)="onFolderAdd($event)"
     ></li>
   </ul>
-  <app-bookmarks
-    *ngIf="selectedFolder"
-    [folder]="selectedFolder"
-  ></app-bookmarks>
+  <app-boomark *ngIf="selectedFolder" [folder]="selectedFolder"></app-boomark>
 </div>
 <div *ngIf="root.children?.length == 0">
   <div>

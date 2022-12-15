@@ -1,5 +1,6 @@
-export class User {
-    id!: number;
-    username!: string;
-    email!: string;
+export interface User {
+    id: number;
+    name: string;
+    email: string;
+    root_id: number;
 }

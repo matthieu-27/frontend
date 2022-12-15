@@ -12,7 +12,6 @@ import { Location } from '@angular/common';
 })
 export class BookmarksComponent implements OnInit {
 
-  @Input() folder!: Folder;
   bookmarks?: Bookmark[];
   title = "Mes marque-page";
 
@@ -24,28 +23,20 @@ export class BookmarksComponent implements OnInit {
    }
 
   ngOnChanges(){
-    this.getBookmarks(this.folder.id!)
   } 
 
   ngOnInit(): void {
-    this.getBookmarks(this.folder.id!);
+    this.getBookmarks();
   }
   
-  getBookmarks(id: number): void {
-    this.bookmarkService.getFolderBookmarks(id)
+  getBookmarks(): void {
+    this.bookmarkService.getBookmarks()
       .subscribe(bookmarks => this.bookmarks = bookmarks);
   }
 
   goBack(): void {
     this.location.back();
   }
-
-  // save(): void {
-  //   if (this.folder) {
-  //     this.bookmarkService.updateFolder(this.folder)
-  //       .subscribe(() => this.goBack());
-  //   }
-  // }
 
   /**
    * Open link in current tab

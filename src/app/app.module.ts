@@ -24,6 +24,7 @@ import { RegisterComponent } from './register/register.component';
 import { FoldersviewComponent } from './foldersview/foldersview.component';
 import { ContainerComponent } from './container/container.component';
 import { TagDetailComponent } from './tag-detail/tag-detail.component';
+import { BoomarkComponent } from './boomark/boomark.component';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { TagDetailComponent } from './tag-detail/tag-detail.component';
     RegisterComponent,
     FoldersviewComponent,
     ContainerComponent,
-    TagDetailComponent
+    TagDetailComponent,
+    BoomarkComponent
   ],
   imports: [
     BrowserModule,
