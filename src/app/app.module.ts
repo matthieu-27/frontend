@@ -25,6 +25,7 @@ import { FoldersviewComponent } from './foldersview/foldersview.component';
 import { ContainerComponent } from './container/container.component';
 import { TagDetailComponent } from './tag-detail/tag-detail.component';
 import { BoomarkComponent } from './boomark/boomark.component';
+import { AddBookmarkComponent } from './add-bookmark/add-bookmark.component';
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import { BoomarkComponent } from './boomark/boomark.component';
     FoldersviewComponent,
     ContainerComponent,
     TagDetailComponent,
-    BoomarkComponent
+    BoomarkComponent,
+    AddBookmarkComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,4 @@
+<label for="add-bookmark">Ajouter:</label>
+<input #addBookmarkBox id="add-box" (input)="add(addBookmarkBox.value)" />
+
+<li *ngFor="let bookmark of bookmarks$ | async">{{ bookmark }}</li>

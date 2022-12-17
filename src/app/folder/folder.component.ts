@@ -50,7 +50,6 @@ export class FolderComponent implements OnInit {
       .subscribe(folder => {
         this.parent!.children?.push(folder);
       });
-    this.addedFolder.emit(true);
   }
 
 }

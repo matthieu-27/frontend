@@ -34,4 +34,11 @@ export class BookmarkService extends BaseService {
       catchError(this.handleError<Bookmark[]>(`getFolderBookmarks id=${id}`))
     );
   }
+
+  addBookmark(url: string): Observable<string[]>{
+    if(!url.trim()) {
+      return of([]);
+    }
+    return this.http.get<string[]>(`${url}`);
+  }
 }

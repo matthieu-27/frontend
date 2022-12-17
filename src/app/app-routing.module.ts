@@ -10,10 +10,12 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ContainerComponent } from './container/container.component';
 import { TagDetailComponent } from './tag-detail/tag-detail.component';
+import { AddBookmarkComponent } from './add-bookmark/add-bookmark.component';
 
 const routes: Routes = [
   { path: 'folders', component: FoldersComponent },
   { path: 'folder/:id', component: FolderDetailComponent},
+  { path: 'bookmark', component: AddBookmarkComponent},
   { path: 'bookmarks', component: BookmarksComponent},
   { path: 'bookmark/:id', component: BookmarkDetailComponent},
   { path: 'tags', component: TagsComponent},
