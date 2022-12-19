@@ -1,7 +1,7 @@
-<h1>{{title}}</h1>
 <nav>
-	<a routerLink="/folders">Folders</a>
+  <a routerLink="/">Home</a>
+  <logout *ngIf="authService.logged$ | async"></logout>
+  <a *ngIf="!(authService.logged$ | async)" routerLink="/register">Register</a>
 </nav>
-<app-login></app-login>
 <router-outlet></router-outlet>
-<app-messages></app-messages>
+<messages></messages>

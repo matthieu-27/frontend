@@ -1,24 +1,23 @@
 <h2>My Folders</h2>
 <ul class="folders">
-	<li *ngFor="let folder of folders">
-		<a routerLink="/folder/{{folder.id}}">
-			<span class="badge">{{folder.id}}</span> {{folder.name}}
-		</a>
-		<button
-			type="button"
-			class="delete"
-			title="delete hero"
-			(click)="delete(folder)"
-		>
-			x
-		</button>
-	</li>
+  <li *ngFor="let folder of folders">
+    <a routerLink="/folder/{{ folder.id }}">
+      <span class="badge">{{ folder.id }}</span> {{ folder.name }}
+    </a>
+    <button
+      type="button"
+      class="delete"
+      title="delete hero"
+      (click)="delete(folder)"
+    >
+      x
+    </button>
+  </li>
 </ul>
-<div>
+<!-- <div>
 	<label for="new-folder">Folder name: </label>
 	<input id="new-folder" #folderName />
 
-	<!-- (click) passes input value to add() and then clears the input -->
 	<button
 		type="button"
 		class="add-button"
@@ -26,4 +25,4 @@
 	>
 		Add folder
 	</button>
-</div>
+</div> -->

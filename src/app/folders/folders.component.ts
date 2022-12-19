@@ -4,7 +4,7 @@ import { FolderService } from '../services/api-service/folder.service';
 import { MessageService } from '../services/misc-service/message.service';
 
 @Component({
-  selector: 'app-folders',
+  selector: 'folders',
   templateUrl: './folders.component.html',
   styleUrls: ['./folders.component.css']
 })

@@ -12,6 +12,8 @@ import { LoginComponent } from './login/login.component';
 import { AuthModule } from './auth/auth.module';
 import { UserTokenInterceptor } from './auth/interceptors/user-token/user-token.interceptor';
 import { TagsComponent } from './tags/tags.component';
+import { LogoutComponent } from './logout/logout.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { TagsComponent } from './tags/tags.component';
     BookmarksComponent,
     LoginComponent,
     TagsComponent,
-    
+    LogoutComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,

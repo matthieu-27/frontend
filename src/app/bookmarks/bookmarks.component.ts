@@ -6,7 +6,7 @@ import { Folder } from '../models/folder';
 import { MessageService } from '../services/misc-service/message.service'; 
 
 @Component({
-  selector: 'app-bookmarks',
+  selector: 'bookmarks',
   templateUrl: './bookmarks.component.html',
   styleUrls: ['./bookmarks.component.css']
 })
@@ -29,6 +29,15 @@ export class BookmarksComponent implements OnInit {
   getFolderBookmarks(): void {
     this.bookmarks = [];
     const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.bookmarkService.getFolderBookmarks(id).subscribe(bookmarks => this.bookmarks = bookmarks);
+    this.bookmarkService.getFolderBookmarks(id).subscribe({
+      next: (data) => {
+
+        data.forEach(element => {
+          if(element.url) element.url = new URL(element.url);
+        });
+
+        this.bookmarks = data;
+      }
+    });
   }
 }

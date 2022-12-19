@@ -3,28 +3,41 @@ import {
   HttpRequest,
   HttpHandler,
   HttpEvent,
-  HttpInterceptor
+  HttpInterceptor,
+  HttpErrorResponse
 } from '@angular/common/http';
 import { catchError, Observable, throwError } from 'rxjs';
 import { AuthService } from 'src/app/services/auth-service/auth.service'; 
+import { Router } from '@angular/router';
+import {tap} from 'rxjs/operators';
 
 @Injectable()
 export class UserTokenInterceptor implements HttpInterceptor {
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
 
     //Request Add UserToken JWT
     if(this.authService.isLogged())  {
       request = request.clone({
-        setHeaders: {Authorization: this.authService.userToken}
+        setHeaders: {
+          'Content-Type': 'application/json',
+          Authorization: this.authService.userToken
+        }
      })
     }
     // Vérifier si 401 dans le next
     // Si 401 => rediriger vers login
     // sinon continue
 
-    return next.handle(request).pipe();
+    return next.handle(request).pipe((tap(() => {}, (err: any) => {
+      if (err instanceof HttpErrorResponse) {
+        if (err.status !== 401){
+          return;
+        }
+        this.router.navigate(['/login'])
+      }
+    })));
   }
 }

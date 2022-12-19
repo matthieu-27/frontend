@@ -11,17 +11,26 @@ export class AuthService {
 
   private _userToken = '';
   public get userToken(){ return this._userToken; }
+  private _rootId: number = 0;
+  public get rootId(){return this._rootId;}
 
   private logged: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   public logged$ = this.logged.asObservable();
 
-  constructor(private http: HttpClient, private message: MessageService) { }
+  constructor(private http: HttpClient, private message: MessageService) {
+    if(localStorage.getItem("access_token") !== null){
+      this._userToken = String(localStorage.getItem("access_token"));
+      this.changeLoggedValue(true);
+    } 
+   }
 
   public SignIn(email: string, password: string) :Observable<boolean> {
     return new Observable( obs => {
-      this.http.post<string>(`${environment.apis.bookmarks}login`, { email, password }).subscribe( {
-        next: token => {
-          this._userToken = 'Bearer ' + token;
+      this.http.post<any>(`${environment.apis.bookmarks}login`, { email, password }).subscribe( {
+        next: data => {
+          this._userToken = 'Bearer ' + data.token;
+          this._rootId = data.root_id;
+          localStorage.setItem("access_token", this.userToken);
           this.changeLoggedValue(true);
           obs.next(true);
           obs.complete();
@@ -36,6 +45,7 @@ export class AuthService {
   }
 
   public logout() : void {
+    localStorage.removeItem("access_token");
     this.logged.next(false);
     this._userToken = '';
   }
