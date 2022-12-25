@@ -14,6 +14,7 @@ import { UserTokenInterceptor } from './auth/interceptors/user-token/user-token.
 import { TagsComponent } from './tags/tags.component';
 import { LogoutComponent } from './logout/logout.component';
 import { RegisterComponent } from './register/register.component';
+import { AmioFavComponent } from './components/amio-fav/amio-fav.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { RegisterComponent } from './register/register.component';
     TagsComponent,
     LogoutComponent,
     RegisterComponent,
+    AmioFavComponent,
   ],
   imports: [
     BrowserModule,
