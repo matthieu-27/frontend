@@ -1,9 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Bookmark } from '../models/bookmark'; 
-import { BookmarkService } from '../services/api-service/bookmark.service'; 
-import { Folder } from '../models/folder'; 
-import { MessageService } from '../services/misc-service/message.service'; 
+import { Bookmark } from '../../models/bookmark'; 
+import { BookmarkService } from '../../services/api-service/bookmark.service'; 
+import { Folder } from '../../models/folder'; 
+import { MessageService } from '../../services/misc-service/message.service'; 
 
 @Component({
   selector: 'bookmarks',
@@ -18,12 +18,25 @@ export class BookmarksComponent implements OnInit {
   constructor(private messageService: MessageService, private bookmarkService: BookmarkService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.getFolderBookmarks();
+    if(this.folder){
+
+    }else{
+      this.getBookmarks();
+    }
   }
 
   getBookmarks(): void {
     this.bookmarkService.getBookmarks()
-        .subscribe(bookmarks => this.bookmarks = bookmarks);
+        .subscribe({
+          next: (data) => {
+    
+            data.forEach(element => {
+              if(element.url) element.url = new URL(element.url);
+            });
+    
+            this.bookmarks = data;
+          }
+        });
   }
 
   getFolderBookmarks(): void {

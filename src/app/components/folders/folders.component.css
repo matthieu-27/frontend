@@ -1,0 +1,4 @@
+:host{
+    width: 240px;
+    height: calc(100vh - var(--));
+}

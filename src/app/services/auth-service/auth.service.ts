@@ -12,7 +12,7 @@ export class AuthService {
   private _userToken = '';
   public get userToken(){ return this._userToken; }
   private _rootId: number = 0;
-  public get rootId(){return this._rootId;}
+  public get rootId(){ return this._rootId; }
 
   private logged: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   public logged$ = this.logged.asObservable();

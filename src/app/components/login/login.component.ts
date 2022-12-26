@@ -1,8 +1,8 @@
 import { Component, OnChanges } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from '../services/auth-service/auth.service'; 
-import { MessageService } from '../services/misc-service/message.service';
-import { UserService } from '../services/api-service/user.service';
+import { AuthService } from '../../services/auth-service/auth.service'; 
+import { MessageService } from '../../services/misc-service/message.service';
+import { UserService } from '../../services/api-service/user.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -22,8 +22,7 @@ export class LoginComponent {
   }
 
   ngOnChanges(){
-    if(this.authService.logged$){
-      this.router.navigate(['/folders'])
+    if(this.authService.isLogged()){
     }
   }
 
@@ -31,7 +30,7 @@ export class LoginComponent {
     if(this.userForm.value.email && this.userForm.value.password) {
 
       this.authService.SignIn(this.userForm.value.email, this.userForm.value.password).subscribe( isLogged => {
-        // fin de l'authentification;
+        this.router.navigate(['/'])
         this.messageService.add(`IsLogged ${isLogged}`);
       })
     }
