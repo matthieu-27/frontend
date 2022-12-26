@@ -3,6 +3,7 @@ import { Folder } from '../models/folder';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { FolderService } from '../services/api-service/folder.service'; 
+import { AuthService } from '../services/auth-service/auth.service';
 
 @Component({
   selector: 'app-folder-detail',
@@ -16,12 +17,12 @@ export class FolderDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private folderService: FolderService,
-    private location: Location
-  ) { }
+    private location: Location,
+  ) { 
+  }
 
   ngOnInit(): void {
     this.getFolder();
-
   }
   
   getFolder(): void {

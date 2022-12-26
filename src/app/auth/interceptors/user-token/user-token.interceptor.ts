@@ -27,11 +27,8 @@ export class UserTokenInterceptor implements HttpInterceptor {
         }
      })
     }
-    // Vérifier si 401 dans le next
-    // Si 401 => rediriger vers login
-    // sinon continue
 
-    return next.handle(request).pipe((tap(() => {}, (err: any) => {
+    return next.handle(request).pipe((tap((err: any) => {
       if (err instanceof HttpErrorResponse) {
         if (err.status !== 401){
           return;
