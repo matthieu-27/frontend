@@ -4,6 +4,7 @@ import { Bookmark } from '../models/bookmark';
 import { BookmarkService } from '../services/api-service/bookmark.service'; 
 import { Folder } from '../models/folder'; 
 import { Location } from '@angular/common';
+import { FolderService } from '../services/api-service/folder.service';
 
 @Component({
   selector: 'app-bookmarks',
@@ -14,23 +15,31 @@ export class BookmarksComponent implements OnInit {
 
   bookmarks?: Bookmark[];
   title = "Mes marque-page";
+  @Input() folder?: Folder;
 
   constructor(
-    private route: ActivatedRoute,
     private bookmarkService: BookmarkService,
     private location: Location
-  ) { 
-   }
+  ) {}
 
   ngOnChanges(){
   } 
 
   ngOnInit(): void {
-    this.getBookmarks();
+    if(this.folder){
+      this.getFolderBookmarks(this.folder.id!);
+    }else{
+      this.getBookmarks();
+    }
   }
   
   getBookmarks(): void {
     this.bookmarkService.getBookmarks()
+      .subscribe(bookmarks => this.bookmarks = bookmarks);
+  }
+
+  getFolderBookmarks(id: number): void {
+    this.bookmarkService.getFolderBookmarks(id)
       .subscribe(bookmarks => this.bookmarks = bookmarks);
   }
 

@@ -1,12 +1,11 @@
 <li>
   {{ folder.name }}
 </li>
-<i-feather name="chevron-down" (click)="expand()"></i-feather>
 <i-feather
-  name="{{ addButton ? 'folder-minus' : 'folder-plus' }}"
-  (click)="addFolder()"
+  *ngIf="folder.children!.length"
+  name="chevron-down"
+  (click)="expand()"
 ></i-feather>
-<i-feather name="trash-2" class="red" (click)="delete(folder)"></i-feather>
 <ul *ngIf="isOpen">
   <li
     app-folder
@@ -15,16 +14,3 @@
     [folder]="child"
   ></li>
 </ul>
-<div *ngIf="addButton" class="add">
-  <div>
-    <label for="new-folder">folder name: </label>
-    <input id="new-folder" #folderName />
-  </div>
-  <button
-    type="button"
-    class="add-button"
-    (click)="add(folderName.value, folder.id!); folderName.value = ''"
-  >
-    Add folder
-  </button>
-</div>

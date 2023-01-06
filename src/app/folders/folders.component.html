@@ -1,5 +1,4 @@
 <div *ngIf="root.children">
-  <h2>{{ title }}</h2>
   <ul>
     <li
       app-folder
@@ -7,21 +6,8 @@
       [parent]="root"
       [folder]="folder"
       (click)="onSelect(folder)"
-      (addedFolder)="onFolderAdd($event)"
     ></li>
   </ul>
-  <app-boomark *ngIf="selectedFolder" [folder]="selectedFolder"></app-boomark>
 </div>
-<div *ngIf="root.children?.length == 0">
-  <div>
-    <label for="new-folder">folder name: </label>
-    <input id="new-folder" #folderName />
-  </div>
-  <button
-    type="button"
-    class="add-button"
-    (click)="add(folderName.value); folderName.value = ''"
-  >
-    Add folder
-  </button>
-</div>
+<app-tags></app-tags>
+<app-bookmarks [folder]="selectedFolder"></app-bookmarks>

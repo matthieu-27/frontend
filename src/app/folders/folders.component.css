@@ -1,6 +1,21 @@
 :host{
-    display: flex;
+    display: grid;
+    grid-template-areas: "folders bookmarks"
+                         "tags bookmarks";
+    grid-template-columns: 32vw auto;
+    grid-template-rows: fit-content auto;
+    grid-area: folders;
 }
+
+app-bookmarks{
+    grid-area: bookmarks;
+}
+
+app-tags{
+    grid-area: tags;
+}
+
+
 ul{
     list-style: none;
     margin: 0;
