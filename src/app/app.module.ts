@@ -26,6 +26,9 @@ import { ContainerComponent } from './container/container.component';
 import { TagDetailComponent } from './tag-detail/tag-detail.component';
 import { BoomarkComponent } from './boomark/boomark.component';
 import { AddBookmarkComponent } from './add-bookmark/add-bookmark.component';
+import { AmiofavModule } from './amiofav/amiofav.module';
+import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
+import {MatNativeDateModule} from '@angular/material/core';
 
 
 @NgModule({
@@ -50,6 +53,8 @@ import { AddBookmarkComponent } from './add-bookmark/add-bookmark.component';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
+    MatNativeDateModule,
     FormsModule,
     HttpClientModule,
     AppRoutingModule,
@@ -57,9 +62,19 @@ import { AddBookmarkComponent } from './add-bookmark/add-bookmark.component';
     AuthModule,
     BrowserAnimationsModule,
     DragDropModule,
-    FeatherModule.pick(allIcons)
+    FeatherModule.pick(allIcons),
+    AmiofavModule
     ],
-  providers: [{provide: HTTP_INTERCEPTORS, useClass: UserTokenInterceptor, multi: true}],
+  providers: [
+    {
+       provide: MAT_FORM_FIELD_DEFAULT_OPTIONS,
+       useValue: { appearance: 'fill' },
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: UserTokenInterceptor,
+      multi: true
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -26,7 +26,8 @@ export class BookmarksComponent implements OnInit {
   } 
 
   ngOnInit(): void {
-    if(this.folder){
+    console.log(this.folder);
+    if(this.folder !== undefined){
       this.getFolderBookmarks(this.folder.id!);
     }else{
       this.getBookmarks();

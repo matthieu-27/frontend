@@ -10,24 +10,29 @@ import { BookmarkService } from '../services/api-service/bookmark.service';
 })
 export class BoomarkComponent implements OnInit {
 
-  @Input() folder!: Folder;
+  @Input() folder?: Folder;
   bookmarks?: Bookmark[];
 
   constructor(private bookmarkService: BookmarkService){
-
+    
   }
   
   ngOnInit(): void {
-    this.getFolderBookmarks(this.folder.id!)
+    if(this.folder) this.getFolderBookmarks(this.folder.id!);
+    this.getBookmarks();
   }
 
   ngOnChanges(){
-    this.getFolderBookmarks(this.folder.id!);
+    this.getFolderBookmarks(this.folder!.id!);
   }
 
   getFolderBookmarks(id: number): void {
     this.bookmarkService.getFolderBookmarks(id)
       .subscribe(bookmarks => this.bookmarks = bookmarks);
+  }
+
+  getBookmarks(): void {
+    this.bookmarkService.getBookmarks().subscribe(bookmarks => this.bookmarks = bookmarks);
   }
 
 
