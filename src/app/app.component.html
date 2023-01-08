@@ -4,10 +4,13 @@
       <img src="assets/logo.png" />
       <a routerLink="/"><h1>AMIO-Fav</h1></a>
     </div>
-    <logout *ngIf="authService.logged$ | async"></logout>
-    <a *ngIf="!(authService.logged$ | async)" routerLink="/register"
-      >Register</a
-    >
+    <div>
+      <searchbar></searchbar>
+      <logout *ngIf="authService.logged$ | async"></logout>
+      <a *ngIf="!(authService.logged$ | async)" routerLink="/register"
+        >Register</a
+      >
+    </div>
   </nav>
 </header>
 <main>

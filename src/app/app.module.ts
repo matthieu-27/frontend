@@ -21,6 +21,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AmiofavModule } from './components/material.module';
 import { allIcons } from 'angular-feather/icons';
 import { FeatherModule } from 'angular-feather';
+import { SearchbarComponent } from './searchbar/searchbar.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { FeatherModule } from 'angular-feather';
     RegisterComponent,
     AmioFavComponent,
     FolderComponent,
+    SearchbarComponent,
   ],
   imports: [
     BrowserModule,

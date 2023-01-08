@@ -1,0 +1,8 @@
+:host{
+    display: flex;
+    align-self: center;
+}
+
+i-feather{
+    cursor: pointer;
+}
