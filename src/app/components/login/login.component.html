@@ -1,19 +1,10 @@
 <div *ngIf="!(authService.logged$ | async)">
-  <h2>Login</h2>
-  <span [innerHTML]=""></span>
+  <span>Connexion</span>
   <form (ngSubmit)="login()" [formGroup]="userForm">
-    <div>
-      <label>Email</label
-      ><input type="email" formControlName="email" placeholder="me@you.fr" />
-    </div>
-    <div>
-      <label>Password</label
-      ><input
-        type="password"
-        formControlName="password"
-        placeholder="password"
-      />
-    </div>
+    <label>Email</label
+    ><input type="email" formControlName="email" placeholder="me@you.fr" />
+    <label>Password</label
+    ><input type="password" formControlName="password" placeholder="password" />
     <button type="submit" [disabled]="userForm.invalid">Login</button>
   </form>
 </div>

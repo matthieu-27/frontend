@@ -1,27 +1,12 @@
-<ul class="folders">
-  <li *ngFor="let folder of folders">
-    <a routerLink="/folder/{{ folder.id }}">
-      <span class="badge">{{ folder.id }}</span> {{ folder.name }}
-    </a>
-    <!-- <button
-      type="button"
-      class="delete"
-      title="delete hero"
-      (click)="delete(folder)"
-    >
-      x
-    </button> -->
-  </li>
+<ul>
+  <li
+    app-folder
+    *ngFor="let folder of folders"
+    [folder]="folder"
+    (folderEmitter)="onSelected($event)"
+  ></li>
 </ul>
-<!-- <div>
-	<label for="new-folder">Folder name: </label>
-	<input id="new-folder" #folderName />
-
-	<button
-		type="button"
-		class="add-button"
-		(click)="add(folderName.value); folderName.value=''"
-	>
-		Add folder
-	</button>
-</div> -->
+<bookmarks
+  *ngIf="selectedFolder"
+  [folder]="selectedFolder ? selectedFolder : rootFolder"
+></bookmarks>

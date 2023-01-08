@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Folder } from '../../models/folder'; 
-import { FolderService } from '../../services/api-service/folder.service'; 
-import { MessageService } from '../../services/misc-service/message.service';
+import { Folder } from 'src/app/models/folder';
+import { FolderService } from 'src/app/services/api-service/folder.service';
+
 
 @Component({
   selector: 'folders',
@@ -11,17 +11,21 @@ import { MessageService } from '../../services/misc-service/message.service';
 export class FoldersComponent implements OnInit {
 
   folders: Folder[] = [];
+  rootFolder: Folder;
+  rootId: number;
   selectedFolder?: Folder;
-  
-  constructor(private folderService: FolderService, private messageService: MessageService) { }
+
+  constructor(private folderService: FolderService){
+    this.rootId = Number(localStorage.getItem("root_id"));
+    this.rootFolder = this.folderService.selectedFolder();
+  }
 
   ngOnInit(): void {
     this.getFolders();
   }
 
-  onSelect(folder: Folder): void {
+  onSelected(folder: Folder){
     this.selectedFolder = folder;
-    this.messageService.add(`FolderComponent: Selected folder id=${folder.id}`);
   }
 
   getFolders(): void {
@@ -29,17 +33,11 @@ export class FoldersComponent implements OnInit {
         .subscribe(folders => this.folders = folders);
   }
 
-  add(name: string): void {
-    name = name.trim();
-    if (!name) { return; }
-    this.folderService.addFolder({ name } as Folder)
-      .subscribe(folder => {
-        this.folders.push(folder);
-      });
+  addChildrens(): void {
+    this.folderService.getFolder(this.rootFolder.id).subscribe({
+      next: children => this.rootFolder = children,
+      error: err => console.log(err.error),
+    });
   }
 
-  delete(folder: Folder): void {
-    this.folders = this.folders.filter(h => h !== folder);
-    this.folderService.deleteFolder(folder.id).subscribe();
-  }
 }

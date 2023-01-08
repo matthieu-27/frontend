@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { Folder } from 'src/app/models/folder';
-import { FolderService } from 'src/app/services/api-service/folder.service';
+
 
 @Component({
   selector: 'amio-fav',
@@ -9,13 +8,6 @@ import { FolderService } from 'src/app/services/api-service/folder.service';
 })
 export class AmioFavComponent {
 
-  selectedFolder?: Folder;
-
-  constructor(private folderService: FolderService){}
-
-  onSelect(folder: Folder){
-    this.selectedFolder = folder;
-  }
 
 
 }

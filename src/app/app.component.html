@@ -1,7 +1,26 @@
-<nav>
-  <a routerLink="/">Home</a>
-  <logout *ngIf="authService.logged$ | async"></logout>
-  <a *ngIf="!(authService.logged$ | async)" routerLink="/register">Register</a>
-</nav>
-<router-outlet></router-outlet>
-<!-- <messages></messages> -->
+<header>
+  <nav>
+    <div>
+      <img src="assets/logo.png" />
+      <a routerLink="/"><h1>AMIO-Fav</h1></a>
+    </div>
+    <logout *ngIf="authService.logged$ | async"></logout>
+    <a *ngIf="!(authService.logged$ | async)" routerLink="/register"
+      >Register</a
+    >
+  </nav>
+</header>
+<main>
+  <router-outlet></router-outlet>
+</main>
+<footer>
+  <div>
+    <a routerLink="/folders"><i-feather name="folder"></i-feather></a>
+  </div>
+  <div>
+    <a routerLink="/bookmarks"><i-feather name="bookmark"></i-feather></a>
+  </div>
+  <div>
+    <a routerLink="/tags"><i-feather name="tag"></i-feather></a>
+  </div>
+</footer>

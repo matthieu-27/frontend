@@ -1,7 +1,17 @@
+
+
 :host{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    --header-height: 60px;
+    --footer-height: 60px;
+    --primary-color: hsl(216deg 48% 38%);
+    --secondary-color: hsl(73deg 87% 40%);
+    --tertiary-color: hsl(37deg 100% 47%);
+    --white: hsl(0deg 0% 92%);
+    --black: hsl(0deg 0% 14%);
+    --blackish: hsl(0deg 0% 33%);
 }
 
 nav{
@@ -15,4 +25,41 @@ nav{
 
 a{
     display: block;
+    text-decoration: none;
+    color: var(--blackish);
+}
+
+nav > div {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: auto;
+}
+
+footer {
+    width: 100vw;
+    height: var(--footer-height);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+main{
+    height: calc(100vh - calc(var(--header-height) + var(--footer-height)));
+    width: 100vw;
+}
+
+i-feather {
+    align-self: center;
+    stroke-width: 2;
+    width: 36px;
+    height: 36px;
+}
+
+header i-feather {
+    margin-right: 12px;
+}
+
+a {
+    text-decoration: none;
 }

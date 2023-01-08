@@ -1,11 +1,33 @@
 @import '~normalize.css';
+@import "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";
+
 :root{
-    --header-height: 60px;
-    --footer-height: 60px;
-    --primary-color: hsl(216deg 48% 38%);
-    --secondary-color: hsl(73deg 87% 40%);
-    --tertiary-color: hsl(37deg 100% 47%);
-    --white: hsl(0deg 0% 92%);
-    --black: hsl(0deg 0% 14%);
-    --blackish: hsl(0deg 0% 33%);
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    font-family: 'Roboto', sans-serif;
+    background-color: #eaeaea;
+    color: #242424;
+}
+
+h1 {
+    font-weight: 500;
+    font-size: 24px;
+    margin-left: 12px;
+}
+
+h2 {
+    font-weight: 400;
+    font-size: 32px;
 }

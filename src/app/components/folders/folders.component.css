@@ -1,4 +1,16 @@
 :host{
-    width: 240px;
-    height: calc(100vh - var(--));
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: "folders bookmarks";
+    grid-area: folders;
+    width: 100vw;
+}
+
+bookmarks{
+    grid-area: bookmarks;
+}
+
+ul{
+    list-style: none;
 }

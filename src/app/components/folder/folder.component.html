@@ -1,1 +1,2 @@
-<p>folder works!</p>
+<span (click)="onSelect(folder)">{{ folder.name }}</span>
+<li app-folder *ngFor="let child of folder.children" [folder]="child"></li>

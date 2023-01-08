@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { BehaviorSubject, Observable, of, Subject } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { Folder } from 'src/app/models/folder'; 
 import { MessageService } from '../misc-service/message.service'; 
@@ -16,7 +16,22 @@ export class FolderService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json'})
   };
 
+  private folderSelectedSource: BehaviorSubject<Folder> = new BehaviorSubject<Folder>({id: Number(localStorage.getItem("root_id")), name: "root"});
+  folderSelected$ = this.folderSelectedSource.asObservable();
+
   constructor(private http: HttpClient, private messageService: MessageService) {
+    const root_id: number = Number(localStorage.getItem("root_id"));
+    this.getFolder(root_id).subscribe({
+      next: folder => this.folderSelectedSource.next(folder)
+    })
+  }
+
+  selectFolder(folder: Folder){
+    this.folderSelectedSource.next(folder);
+  }
+
+  public selectedFolder = () => {
+    return this.folderSelectedSource.getValue();
   }
 
   /** GET folders from the server */
